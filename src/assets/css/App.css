@@ -1,0 +1,101 @@
+@font-face {
+  font-family: 'Poppins';
+  src: local('Poppins'), url(../fonts/Poppins/Poppins-Medium.ttf) format('truetype');
+}
+
+:root {
+  --main-background-color: #F9F9F9;
+  --main-color: #000000;
+  --main-font-size: 4vw;
+  --disable-color: #5E5E5E;
+  --main-font: Poppins;
+  --header-logo: url(/src/assets/img/header-logo.webp);
+  --header-logo-size: 100%;
+  
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    box-sizing: border-box;
+    font-family: var(--main-font);
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+.app{
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--main-background-color);
+}
+
+.main{
+  flex: 1;
+  height: 88vh;
+  padding: 3vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.page{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+button{
+  font-size: 5vw;
+}
+
+.title{
+  text-align: center;
+  font-size: 6vw;
+  padding: 1vw;
+  font-weight: 400;
+}
+
+.subtitle{
+  text-align: center;
+  font-size: 4vw;
+  padding: 1vw;
+  font-weight: 400;
+}
+
+button.button{
+  font-size: 4vw;
+  padding: 3vw;
+  width: 80%;
+  border-radius: 1.5vw;
+  background-color: #000000;
+}
+
+button.button:active, button.button:focus, button.button:hover{
+  background-color: #1b1b1b;
+}
+
+.section{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}

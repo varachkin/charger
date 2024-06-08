@@ -1,0 +1,73 @@
+import { useSelector } from "react-redux"
+import { useNavigate } from "react-router-dom"
+import { LANGUAGES_CONFIG } from "../locales";
+import { Footer } from "../components/Footer";
+import { Button, Grid } from "@mui/material";
+import { useState } from "react";
+import { ChargingStationCard } from "../components/ChargingStationCard";
+import { array } from "../constants";
+import { InfoStationCard } from "../components/InfoStationCard";
+import { v4 as uuidv4 } from 'uuid';
+
+
+
+
+export const StartPage = () => {
+    const [isEmptyStation, setIsEmptyStation] = useState(false)
+    const { language } = useSelector(state => state.actionReducer);
+    const navigate = useNavigate()
+
+    const handleGoNext = () => {
+        navigate('/connector-type')
+    }
+    const items = ['Item 1', 'Item 2', 'Item 3', 'Item 2', 'Item 3'];
+    return (
+        <>
+            <div className="page">
+                <h1
+                    className="title"
+                >
+                    {isEmptyStation ?
+                        LANGUAGES_CONFIG[language].START_PAGE.TITLE_EMPTY :
+                        LANGUAGES_CONFIG[language].START_PAGE.TITLE_BUSY}
+
+                </h1>
+                <section className="section">
+                    {isEmptyStation ?
+                        (
+                            <div className="advertising-section">
+                                REKLAMA
+                            </div>
+                        ) :
+                        (
+                            <div className="stations-list">
+                                <Grid container rowSpacing={3} columnSpacing={3} justifyContent='center' sx={{padding: '1rem'}}>
+                                    {array.map((item, index, arr) => (
+                                        <Grid item key={index} flexGrow={1} minWidth={arr.length === 1 ? '100%' : '50%'} justifyContent='center'>
+                                            <ChargingStationCard item={item} />
+                                        </Grid>
+                                    ))}
+                                    <>
+                                        <Grid item key={uuidv4()} minWidth={'50%'}>
+                                            <InfoStationCard />
+                                        </Grid>
+                                    </>
+                                </Grid>
+                            </div>
+                        )}
+                </section >
+            </div >
+            <Footer>
+                <Button
+                    variant="contained"
+                    className="button"
+                    color="secondary"
+                    onClick={handleGoNext}
+                >
+                    {LANGUAGES_CONFIG[language].BUTTONS.GET_STARTED}
+                </Button>
+            </Footer>
+        </>
+
+    )
+}

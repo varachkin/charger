@@ -1,0 +1,35 @@
+.charging {
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    position: relative;
+    animation: rotate 3s linear infinite;
+}
+
+.charging::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    inset: 0px;
+    border-radius: 50%;
+    border: 2vw solid #FF8D50;
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 90%, 100% 90%, 100% 90%, 100% 90%);
+    /* animation: prixClipFix 2s linear infinite ; */
+}
+
+.charging::after {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    inset: 0px;
+    border-radius: 50%;
+    border: 2vw solid #B1B1B1;
+    transform: rotate(180deg);
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 90%, 100% 90%, 100% 90%, 100% 90%);
+    /* animation: prixClipFix 2s linear infinite ; */
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}

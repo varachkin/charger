@@ -1,0 +1,4 @@
+.stations-list{
+    flex: 1;
+    overflow: scroll;
+}
