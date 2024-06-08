@@ -23,6 +23,7 @@ export const InputWithKeyboard = ({
     const inputRef = useRef(null)
     const keyboardRef = useRef(null);
     const keyboardContainerRef = useRef(null);
+    const [isError, setIsError] = useState(false)
 
     const customDisplay = {
         "{bksp}": "⌫",
@@ -36,7 +37,7 @@ export const InputWithKeyboard = ({
         "{lock}": 'Caps',
         "{123}": '123',
         "{hide}": '▼',
-        "{at}" : '@'
+        "{at}" : '@',
     };
 
     const customLayout = {
@@ -53,10 +54,10 @@ export const InputWithKeyboard = ({
             '{123} {at} {space} {dot} {hide}'
         ],
         symbols: [
-            "[ ] { } # % ^ * + =",
-            "_ \\ | ~ < > € £ ¥ ·",
-            "{abc} {numbers} . , ? ! ' {bksp}",
-            "{space}"
+            "1 2 3 4 5 6 7 8 9 0",
+            "- / : ; ( ) $ & [ ]",
+            "+ = , ? ! ' # ~ {bksp}",
+            '{123} {at} {space} {dot} {hide}'
         ],
         number: ["1 2 3", "4 5 6", "7 8 9", "{bksp} 0 {enter}"]
     };
@@ -71,30 +72,19 @@ export const InputWithKeyboard = ({
 
     const onKeyPress = (button, event) => {
         if (button === "{shift}") handleShift();
-        if (button === "{hide}") {
-            setKeyboardOpen(false);
-            inputRef.current.blur()
-        };
+        if (button === "{123}") handle123();
+        if (button === "{at}")  keyboardRef.current.setInput(keyboardRef?.current?.getInput(inputName) + '@')
+        if (button === "{dot}")  keyboardRef.current.setInput(keyboardRef?.current?.getInput(inputName) + '.')
         if (button === "{clear}") clearScreen();
         if (button === "{enter}") submit(event);
         if (button === "{change}" && keyboardRef?.current?.getInput(inputName) && keyboardRef?.current?.getInput(inputName) !== '-.') {
             const newValue = `${(parseFloat(keyboardRef?.current?.getInput(inputName)) * (-1))}`
             keyboardRef.current.setInput(newValue)
-
         }
-        if (button === "{at}")  keyboardRef.current.setInput(keyboardRef?.current?.getInput(inputName) + '@')
-        if (button === "{dot}")  keyboardRef.current.setInput(keyboardRef?.current?.getInput(inputName) + '.')
-
-
-            // if (!keyboard?.current?.getInput(inputName)) {
-            //     const newVal = '0' + '.'
-            //     keyboard.current.setInput(newVal)
-            // } else if (!keyboard?.current?.getInput(inputName).includes('.')) {
-            //     keyboard.current.setInput(keyboard?.current?.getInput(inputName) + '.')
-            // } else {
-            //     keyboard.current.setInput(keyboard?.current?.getInput(inputName))
-            // }
-            // keyboard.current.setCaretPosition(keyboard?.current?.getInput(inputName).length)
+        if (button === "{hide}") {
+            setKeyboardOpen(false);
+            inputRef.current.blur()
+        };
 
         keyboardRef.current.setCaretPosition(keyboardRef?.current?.getInput(inputName).length)
     };
@@ -108,8 +98,14 @@ export const InputWithKeyboard = ({
     }
 
     const handleShift = () => {
+        if(layoutType === 'text' || layoutType === 'shift')
         setLayoutType((prevLayout) =>
             prevLayout === "text" ? "shift" : "text"
+        );
+    };
+    const handle123 = () => {
+        setLayoutType((prevLayout) =>
+            prevLayout === "text" || prevLayout === 'shift' ? "symbols" : "text"
         );
     };
 
@@ -119,9 +115,7 @@ export const InputWithKeyboard = ({
             ...input,
             [inputName]: inputVal,
         };
-
         setInput(updatedInputObj);
-
         if (keyboardRef.current) {
             keyboardRef.current.setInput(inputVal);
         }
@@ -144,7 +138,6 @@ export const InputWithKeyboard = ({
     const clearScreen = () => {
         clearInput();
     };
-
 
     const handleChangeInputType = () => {
         inputType === 'password' ? setInputType('text') : setInputType('password')
@@ -171,13 +164,11 @@ export const InputWithKeyboard = ({
         document
             .getElementById("root")
             .addEventListener("click", handleOutsideClick);
-
         return () => {
             document
                 .getElementById("root")
                 .removeEventListener("click", handleOutsideClick);
         };
-
     }, []);
     useEffect(() => {
         const keyboardValues = {};
@@ -195,6 +186,16 @@ export const InputWithKeyboard = ({
         }
     }, [inputName])
 
+    useEffect(()=> {
+        const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if(input[id] && !emailRegex.test(input[id]) ){
+            console.log(emailRegex.test(input[id]))
+            setIsError(true)
+        }else{
+            setIsError(false)
+        }
+    },[input[id]])
+
     return (
         <div ref={keyboardContainerRef} className="input-wrapper" >
 
@@ -205,13 +206,15 @@ export const InputWithKeyboard = ({
                             label={placeholder}
                             variant="outlined"
                             className={`keyboard-input ${className}`}
-                            ref={inputRef}
+                            inputRef={inputRef}
                             key={`${id}`}
-                            onClick={() => setActiveInput(`${id}`)}
-                            value={input[`${id}`] || ""}
+                            onClick={() => setActiveInput(id)}
+                            value={input[id] || ""}
                             // placeholder={placeholder || id}
                             onChange={(e) => onChangeInput(e)}
                             type={inputType}
+                            error={isError}
+                            helperText={isError ? 'Error' : ''}
                         />
                         {type === 'password' && <span
                             onTouchStart={handleChangeInputType}
