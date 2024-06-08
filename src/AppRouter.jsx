@@ -13,7 +13,7 @@ export default function AppRouter(props) {
                 <Routes>
                     <Route path="/" element={<StartPage {...props} error={<ErrorBoundary />} />} />
                     <Route path="connector-type" element={<ConnectorTypePage {...props} error={<ErrorBoundary />} />} />
-                    <Route path="/page_1" element={<Page_2 {...props} error={<ErrorBoundary />} />} />
+                    <Route path="/page_2" element={<Page_2 {...props} error={<ErrorBoundary />} />} />
                 </Routes>
             </Wrapper>
         </BrowserRouter>

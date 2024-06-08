@@ -44,6 +44,7 @@ export const ConnectorTypePage = () => {
             </div>
             <Footer>
                 <button onClick={handleBack}>BACK</button>
+                <button onClick={()=> navigate('/page_2')}>page test</button>
             </Footer>
         </>
 
