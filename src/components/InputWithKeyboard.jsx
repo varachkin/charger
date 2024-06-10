@@ -152,7 +152,7 @@ export const InputWithKeyboard = ({
             setInput(updatedInputObj);
         }
         const handleOutsideClick = (event) => {
-            console.log(event.currentTarget)
+            console.log(event.target)
             const isClickInsideKeyboard =
                 keyboardContainerRef.current &&
                 keyboardContainerRef.current.contains(event.target);

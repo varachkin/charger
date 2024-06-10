@@ -29,6 +29,20 @@ export const LANGUAGES_CONFIG = {
             GET_STARTED: 'Rozpocznij',
             BACK: 'wstecz',
             START_CHARGING: 'Rozpocznij ładowanie',
+        },
+        FORM: {
+            FORM_TITLE: 'Wymagane:',
+            REGULATIONS: 'Akceptuję warunki ',
+            REGULATIONS_LINK: 'regulaminu',
+            PRIVATE_POLICY: 'Akceptuję warunki ',
+            PRIVATE_POLICY_LINK: 'polityki prywatności',
+            FORM_ERROR_MESSAGE: 'Wymagana akceptacja warunków usługi.',
+        },
+        REGULATIONS: {
+            REGULATIONS_TITLE: 'Regulamin usług'
+        },
+        PRIVATE_POLICY: {
+            PRIVATE_POLICY_TITLE: 'Polityka Prywatności'
         }
     },
     en: {
@@ -61,6 +75,20 @@ export const LANGUAGES_CONFIG = {
             GET_STARTED: 'Get started',
             BACK: 'back',
             START_CHARGING: 'Start charging',
-        }
+        },
+        FORM: {
+            FORM_TITLE: 'Required:',
+            REGULATIONS: 'I accept the terms of the ',
+            REGULATIONS_LINK: 'regulations',
+            PRIVATE_POLICY: 'I accept the terms of the ',
+            PRIVATE_POLICY_LINK: 'privacy policy',
+            FORM_ERROR_MESSAGE: 'Acceptance of the terms of service is required.',
+        },
+        REGULATIONS: {
+            REGULATIONS_TITLE: 'Terms of Service'
+        },
+        PRIVATE_POLICY: {
+            PRIVATE_POLICY_TITLE: 'Privacy Policy'
+        },
     }
 }
