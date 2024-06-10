@@ -10,6 +10,7 @@ export const LANGUAGES_CONFIG = {
             CARD_ERROR: 'Awaria',
             CARD_INFO_TITLE: 'Rozpocznij ładowanie',
             CARD_INFO_SUBTITLE: 'lub podłącz wtyczkę do pojazdu',
+            REST_CARD_TITLE: 'Pozostałe...',
         },
         CONNECTOR_TYPE_PAGE: {
             PAGE_TITLE: 'Wybierz typ złącza',
@@ -18,8 +19,16 @@ export const LANGUAGES_CONFIG = {
             FAST_TITLE: 'Ultraszybkie',
             TILL: 'Do',
         },
+        CHOOSE_STATION_PAGE: {
+            TITLE_PAGE: 'Wybierz stanowisko',
+        },
+        PREPARING_FOR_CHARGING_PAGE: {
+            TITLE_PAGE: 'Przygotowanie do ładowania'
+        },
         BUTTONS: {
             GET_STARTED: 'Rozpocznij',
+            BACK: 'wstecz',
+            START_CHARGING: 'Rozpocznij ładowanie',
         }
     },
     en: {
@@ -33,6 +42,7 @@ export const LANGUAGES_CONFIG = {
             CARD_ERROR: 'Error',
             CARD_INFO_TITLE: 'Start charging',
             CARD_INFO_SUBTITLE: 'or plug in the vehicle',
+            REST_CARD_TITLE: 'Others...',
         },
         CONNECTOR_TYPE_PAGE: {
             PAGE_TITLE: 'Select connector type',
@@ -41,8 +51,16 @@ export const LANGUAGES_CONFIG = {
             FAST_TITLE: 'Ultra-fast',
             TILL: 'Till',
         },
+        CHOOSE_STATION_PAGE: {
+            TITLE_PAGE: 'Select station',
+        },
+        PREPARING_FOR_CHARGING_PAGE: {
+            TITLE_PAGE: 'Preparing for charging'
+        },
         BUTTONS: {
             GET_STARTED: 'Get started',
+            BACK: 'back',
+            START_CHARGING: 'Start charging',
         }
     }
 }

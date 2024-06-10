@@ -1,4 +1,4 @@
-.station-card-wrapper{
+.station-card-wrapper {
     font-size: 2rem;
     padding: 2vw;
     text-align: center;
@@ -6,52 +6,60 @@
     flex-direction: column;
 }
 
-.station-card-number{
+.station-card-number {
     font-size: 7.5vw;
     font-weight: 700;
 }
 
-.station-card-icon-wrapper{
+.station-card-icon-wrapper {
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
+    max-height: 50%;
 }
-.station-card-name{
+
+.station-card-name {
     font-size: 3vw;
 }
-.station-card-title{
+
+.station-card-title {
     margin: 0 auto;
     max-width: 38vw;
     padding: 2vw;
     font-size: 3vw;
 }
-
+.next-slide-card{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    background-color: none !important;
+}
 .station-card-icon {
-    min-width: 50%;
+    height: 100%;
     aspect-ratio: 1/1;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 50%;
 }
 
-.plug{
+.plug {
     background-image: url(/src/assets/img/plug.webp);
 }
 
-.ready{
+.ready {
     background-image: url(/src/assets/img/car.webp);
 }
 
-.not_available{
+.not_available {
     background-image: url(/src/assets/img/error.webp);
     filter: grayscale(95%);
 }
 
-.error{
+.error {
     background-image: url(/src/assets/img/error.webp);
 }
 
-.success{
+.success {
     background-image: url(/src/assets/img/success.webp);
 }

@@ -62,6 +62,15 @@ export const array = [
         number: 12,
         status: 'error',
     },
+    {
+        id: 8,
+        name: {
+            pl: 'Stanowisko',
+            en: 'Position',
+        },
+        number: 12,
+        status: 'error',
+    },
 ]
 
 export const typesChargers = [

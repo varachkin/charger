@@ -15,6 +15,10 @@ export const ConnectorTypePage = () => {
     const handleBack = () => {
         navigate(-1)
     }
+
+    const handleNavigateToChooseStation = (type) => {
+        navigate('/choose-station', {state: {chargerType: type}})
+    }
     return (
         <>
             <div className="page">
@@ -28,7 +32,7 @@ export const ConnectorTypePage = () => {
                     <div className="connector-type-wrapper">
                         <Grid container rowSpacing={6} columns={1} justifyContent='center' flexDirection='column' sx={{ padding: '1rem' }}>
                             {typesChargers.map(charger => (
-                                <Grid item key={uuidv4()} flexGrow={1}>
+                                <Grid item key={uuidv4()} flexGrow={1} onClick={() => handleNavigateToChooseStation(charger.type)}>
                                     <ChargingConnectorCard charger={charger}/>
                                 </Grid>
                             ))}

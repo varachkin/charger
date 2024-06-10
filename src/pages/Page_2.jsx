@@ -1,4 +1,3 @@
-import {TextField} from "@mui/material";
 import {InputWithKeyboard} from "../components/InputWithKeyboard";
 
 export const Page_2 = () => {

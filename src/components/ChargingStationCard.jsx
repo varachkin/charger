@@ -4,7 +4,7 @@ import { Loader } from './Loader';
 import { LANGUAGES_CONFIG } from '../locales';
 import { useEffect, useState } from 'react';
 
-export const ChargingStationCard = ({ item }) => {
+export const ChargingStationCard = ({ item, handleGoToPreparingCharge }) => {
     const [isError, setIsError] = useState(false)
     const [isAvailable, setIsAvailable] = useState(true)
     useEffect(() => {
@@ -21,27 +21,29 @@ export const ChargingStationCard = ({ item }) => {
         error: LANGUAGES_CONFIG[language].START_PAGE.CARD_ERROR
     }
     return (
-        <Paper
-            sx={{
-                height: '30vh',
-                backgroundColor: isError ? '#FFDAD6' : 'inherit',
-                border: isAvailable ? '2px dashed #ABABAB' : 'inherit',
-                opacity: !isAvailable ? 1 : 0.7,
-            }}
-            elevation={isAvailable ? 0 : 6}
-            className='station-card-wrapper'
-        >
-            <div className='station-card-number'>{item.number}</div>
-            <div className='station-card-name'>{item.name[language]}</div>
-            <div className='station-card-icon-wrapper'>
-                <div className={`station-card-icon ${item.status}`}></div>
-            </div>
-            <div
-                className='station-card-title'
+        <div onClick={()=> handleGoToPreparingCharge(item)}>
+            <Paper
+                sx={{
+                    height: '30vh',
+                    backgroundColor: isError ? '#FFDAD6' : 'inherit',
+                    border: isAvailable ? '2px dashed #ABABAB' : 'inherit',
+                    opacity: !isAvailable ? 1 : 0.7,
+                }}
+                elevation={isAvailable ? 0 : 6}
+                className='station-card-wrapper'
             >
-                {subtitles[item.status]}
-            </div>
+                <div className='station-card-number'>{item.number}</div>
+                <div className='station-card-name'>{item.name[language]}</div>
+                <div className='station-card-icon-wrapper'>
+                    <div className={`station-card-icon ${item.status}`}></div>
+                </div>
+                <div
+                    className='station-card-title'
+                >
+                    {subtitles[item.status]}
+                </div>
 
-        </Paper>
+            </Paper>
+        </div>
     )
 }

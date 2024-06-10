@@ -201,8 +201,9 @@ export const InputWithKeyboard = ({
 
             {[id].map((id) => {
                 return (
-                    <label style={{position: 'relative'}}>
+                    <>
                         <TextField
+                            size="medium"
                             label={placeholder}
                             variant="outlined"
                             className={`keyboard-input ${className}`}
@@ -222,7 +223,7 @@ export const InputWithKeyboard = ({
                         >
                             {inputType === 'password' ? <FaEye/> : <FaEyeSlash/>}
                         </span>}
-                    </label>
+                    </>
                 )
             })}
             {ReactDOM.createPortal(

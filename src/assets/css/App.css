@@ -54,6 +54,7 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
 }
 
 .page{
@@ -88,7 +89,12 @@ button.button{
   border-radius: 1.5vw;
   background-color: #000000;
 }
-
+.link{
+  color: #000000 !important;
+  text-decoration-color: #000000 !important;
+  padding: 2vw !important;
+  display: block
+}
 button.button:active, button.button:focus, button.button:hover{
   background-color: #1b1b1b;
 }

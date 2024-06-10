@@ -10,6 +10,8 @@ export const ChargingConnectorCard = ({ charger }) => {
         eco: LANGUAGES_CONFIG[language].CONNECTOR_TYPE_PAGE.ECO_TITLE,
         fast: LANGUAGES_CONFIG[language].CONNECTOR_TYPE_PAGE.FAST_TITLE,
     }
+
+    console.log(charger)
     return (
         <Paper sx={{
             height: '28vh',
