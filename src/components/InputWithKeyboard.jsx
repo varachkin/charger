@@ -123,9 +123,7 @@ export const InputWithKeyboard = ({
 
     const setActiveInput = (inputName) => {
         setInputName(inputName);
-        
         setKeyboardOpen(true)
-        
     };
 
     const clearInput = () => {
@@ -157,7 +155,7 @@ export const InputWithKeyboard = ({
             console.log(event.target)
             const isClickInsideKeyboard =
                 keyboardContainerRef.current &&
-                keyboardContainerRef.current.contains(event.target);
+                keyboardContainerRef.current.contains(event.target) || inputRef.current.contains(event.target);
             if (!isClickInsideKeyboard) {
                 setKeyboardOpen(false);
                 inputRef.current.blur()
@@ -205,6 +203,7 @@ export const InputWithKeyboard = ({
                 return (
                     <React.Fragment key={id}>
                         <TextField
+                            sx={{'& .MuiInputBase-root': {fontSize: '4vw'}}}
                             size="medium"
                             label={placeholder}
                             variant="outlined"

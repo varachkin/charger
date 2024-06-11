@@ -77,6 +77,10 @@ button {
     padding: 1vw;
     font-weight: 400;
 }
+.color-title{
+    font-weight: 700;
+    color: #6FB545;
+}
 
 .subtitle {
     text-align: center;

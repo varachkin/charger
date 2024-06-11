@@ -1,3 +1,7 @@
+export const COST = 0.3718;
+export const BATARY_SIZE = 85;
+
+
 export const array = [
     {
         id: 1,

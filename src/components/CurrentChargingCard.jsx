@@ -15,11 +15,11 @@ export const CurrentChargingCard = ({ station }) => {
         >
             <div className="current-charging-card-header">
                 <div className="station-block">
-                    <div className='station-card-number'>{station.number}</div>
-                    <div className='station-card-name'>{station.name[language]}</div>
+                    <div className='station-card-number'>{station?.number}</div>
+                    <div className='station-card-name'>{station?.name[language]}</div>
                 </div>
-                <div className={`icon-block ${station.charger.type}`}>
-                    <div className="icon-block-name">{station.charger.name}</div>
+                <div className={`icon-block ${station?.charger.type}`}>
+                    <div className="icon-block-name">{station?.charger.name}</div>
                     <div className='connector-type-card-ico'></div>
                 </div>
             </div>
