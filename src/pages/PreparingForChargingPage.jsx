@@ -9,12 +9,13 @@ import FormHelperText from "@mui/material/FormHelperText";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Modal} from "../components/Modal";
 import {Regulations} from "../components/Regulations";
 import {Policy} from "../components/Policy";
 
 export const PreparingForChargingPage = () => {
+    const [station, setStation] = useState(null)
     const {language} = useSelector(state => state.actionReducer)
     const location = useLocation();
     const navigate = useNavigate();
@@ -37,6 +38,7 @@ export const PreparingForChargingPage = () => {
     const handleGoToPayment = () => {
         if (isChecked.regulations && isChecked.private_policy) {
             setIsError(false)
+            navigate('/card-payment', {state: station})
         } else {
             setIsError(true)
         }
@@ -56,6 +58,10 @@ export const PreparingForChargingPage = () => {
     const handleOpenModalPolicy = () => {
         setIsOpenModalPolicy(true)
     }
+
+    useEffect(()=> {
+        setStation(location.state)
+    },[])
     return (
         <>
             <div>

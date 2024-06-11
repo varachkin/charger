@@ -4,7 +4,7 @@ import { Loader } from './Loader';
 import { LANGUAGES_CONFIG } from '../locales';
 import { useEffect, useState } from 'react';
 
-export const ChargingStationCard = ({ item, handleGoToPreparingCharge }) => {
+export const ChargingStationCard = ({ item, handleGoToPreparingCharge=()=>{} }) => {
     const [isError, setIsError] = useState(false)
     const [isAvailable, setIsAvailable] = useState(true)
     useEffect(() => {

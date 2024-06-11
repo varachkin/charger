@@ -27,11 +27,11 @@
     /* flex: 1; */
 }
 
-.connector-type-card-header.eco{
+.connector-type-card-header.type_2{
     background-color: #4B8AE9;
 }
 
-.connector-type-card-header.fast{
+.connector-type-card-header.ccs{
     background-color: #FF8D50;
 }
 
@@ -59,10 +59,9 @@
 }
 .connector-type-card-ico{
     background-repeat: no-repeat;
-    background-size: 65%;
+    background-size: contain;
     background-position: bottom 0 center;
     flex: 4;
-    height: 40%;
 }
 
 .connector-type-card-ico-description{
@@ -71,10 +70,10 @@
    font-size: 2vw;
    padding: 1vw;
 }
-.eco .connector-type-card-ico{
+.type_2 .connector-type-card-ico{
     background-image: url(/src/assets/img/type_2.webp);
 }
 
-.fast .connector-type-card-ico{
+.ccs .connector-type-card-ico{
     background-image: url(/src/assets/img/SCC.webp);
 }

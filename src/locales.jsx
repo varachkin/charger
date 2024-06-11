@@ -25,10 +25,18 @@ export const LANGUAGES_CONFIG = {
         PREPARING_FOR_CHARGING_PAGE: {
             TITLE_PAGE: 'Przygotowanie do ładowania'
         },
+        CARD_PAYMENT_PAGE: {
+            TITLE_PAGE: 'Postępuj zgodnie z instrukcjami na terminalu',
+            SUBTITLE_PAGE: 'Terminal płatniczy znajdziesz zaraz pod ekranem.',
+        },
+        CHARGING_PAGE: {
+            TITLE_PAGE: 'Rozpoczęliśmy ładowanie Twojego pojazdu!',
+        },
         BUTTONS: {
             GET_STARTED: 'Rozpocznij',
             BACK: 'wstecz',
             START_CHARGING: 'Rozpocznij ładowanie',
+            FINISH_CHARGING: 'Zakończ ładowanie',
         },
         FORM: {
             FORM_TITLE: 'Wymagane:',
@@ -71,10 +79,18 @@ export const LANGUAGES_CONFIG = {
         PREPARING_FOR_CHARGING_PAGE: {
             TITLE_PAGE: 'Preparing for charging'
         },
+        CARD_PAYMENT_PAGE: {
+            TITLE_PAGE: 'Follow the instructions on the terminal',
+            SUBTITLE_PAGE: 'You will find the payment terminal just below the screen.',
+        },
+        CHARGING_PAGE: {
+            TITLE_PAGE: 'We have started charging your vehicle!',
+        },
         BUTTONS: {
             GET_STARTED: 'Get started',
             BACK: 'back',
             START_CHARGING: 'Start charging',
+            FINISH_CHARGING: 'Finish charging',
         },
         FORM: {
             FORM_TITLE: 'Required:',

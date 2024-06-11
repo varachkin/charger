@@ -6,6 +6,8 @@ import { Page_2 } from "./pages/Page_2";
 import { ConnectorTypePage } from "./pages/ConnectorTypePage";
 import { ChooseStationPage } from "./pages/ChooseStationPage";
 import { PreparingForChargingPage } from "./pages/PreparingForChargingPage";
+import { CardPaymentPage } from "./pages/CardPaymentPage";
+import { ChargingPage } from "./pages/ChargingPage";
 
 export default function AppRouter(props) {
     return (
@@ -16,6 +18,8 @@ export default function AppRouter(props) {
                     <Route path="connector-type" element={<ConnectorTypePage {...props} error={<ErrorBoundary />} />} />
                     <Route path="/choose-station" element={<ChooseStationPage {...props} error={<ErrorBoundary />} />} />
                     <Route path="/preparing" element={<PreparingForChargingPage {...props} error={<ErrorBoundary />} />} />
+                    <Route path="/card-payment" element={<CardPaymentPage {...props} error={<ErrorBoundary />} />} />
+                    <Route path="/charging" element={<ChargingPage {...props} error={<ErrorBoundary />} />} />
                     <Route path="/page_2" element={<Page_2 {...props} error={<ErrorBoundary />} />} />
                 </Routes>
             </Wrapper>

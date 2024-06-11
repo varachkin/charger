@@ -1,0 +1,66 @@
+.current-charging-card-wrapper{
+    flex: 1;
+    padding: 2vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.current-charging-card{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5vw;
+}
+.current-charging-card-header{
+    flex: 1;
+    width: 100%;
+    /* padding: 5vw 5vw 0; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 25%;
+}
+
+.current-charging-card-header .station-block{
+    height: 100%;
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.current-charging-card-header .icon-block{
+    height: 80%;
+    aspect-ratio: 1/1;
+    display: flex;
+    flex-direction: column;
+}
+.icon-block .icon-block-name{
+    text-align: center;
+    font-size: 2vw;
+    font-weight: 600;
+}
+.current-charging-card-body{
+    width: 100%;
+    flex: 6;
+    /* padding: 5vw; */
+}
+
+.station-card-icon-wrapper{
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.current-charging-card-footer{
+    flex: 1;
+    width: 100%;
+    /* padding: 5vw; */
+    display: flex;
+    align-items: center;
+}

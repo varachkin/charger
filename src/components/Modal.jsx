@@ -33,7 +33,7 @@ export const Modal = ({handleCloseModal, children}) => {
         <div className="modal-container" ref={MODAL_REF}>
             <div className='modal-content-wrapper'>
                 <div className='modal-content'>
-                    <p className='modal-content-paragraph'>{children}</p>
+                    <div className='modal-content-paragraph'>{children}</div>
                     <div className='modal-content-footer'>
                         <LinkCustom onClick={handleCloseModal}>
                             {LANGUAGES_CONFIG[language].BUTTONS.BACK}

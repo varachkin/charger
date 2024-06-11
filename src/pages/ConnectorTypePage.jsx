@@ -7,6 +7,7 @@ import { InfoStationCard } from "../components/InfoStationCard"
 import { v4 as uuidv4 } from 'uuid';
 import { ChargingConnectorCard } from "../components/ChargingConnectorCard"
 import { typesChargers } from "../constants"
+import { LinkCustom } from "../components/LinkCustom"
 
 export const ConnectorTypePage = () => {
     const navigate = useNavigate()
@@ -47,8 +48,7 @@ export const ConnectorTypePage = () => {
                 </h2>
             </div>
             <Footer>
-                <button onClick={handleBack}>BACK</button>
-                <button onClick={()=> navigate('/page_2')}>page test</button>
+                <LinkCustom onClick={handleBack}>{LANGUAGES_CONFIG[language].BUTTONS.BACK}</LinkCustom>
             </Footer>
         </>
 

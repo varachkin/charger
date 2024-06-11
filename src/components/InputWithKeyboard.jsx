@@ -123,7 +123,9 @@ export const InputWithKeyboard = ({
 
     const setActiveInput = (inputName) => {
         setInputName(inputName);
+        
         setKeyboardOpen(true)
+        
     };
 
     const clearInput = () => {
@@ -201,7 +203,7 @@ export const InputWithKeyboard = ({
 
             {[id].map((id) => {
                 return (
-                    <>
+                    <React.Fragment key={id}>
                         <TextField
                             size="medium"
                             label={placeholder}
@@ -223,7 +225,7 @@ export const InputWithKeyboard = ({
                         >
                             {inputType === 'password' ? <FaEye/> : <FaEyeSlash/>}
                         </span>}
-                    </>
+                    </React.Fragment>
                 )
             })}
             {ReactDOM.createPortal(

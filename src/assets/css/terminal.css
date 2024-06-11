@@ -1,0 +1,16 @@
+.terminal-page-wrapper{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+}
+
+.terminal-img-block {
+    height: 38%;
+    aspect-ratio: 1/1;
+    margin: 8vw;
+    background-image: url(/src/assets/img/terminal.webp);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 40%;
+}

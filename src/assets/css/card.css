@@ -41,6 +41,10 @@
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
 
 .plug {

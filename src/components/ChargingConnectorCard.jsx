@@ -11,7 +11,6 @@ export const ChargingConnectorCard = ({ charger }) => {
         fast: LANGUAGES_CONFIG[language].CONNECTOR_TYPE_PAGE.FAST_TITLE,
     }
 
-    console.log(charger)
     return (
         <Paper sx={{
             height: '28vh',
@@ -24,9 +23,9 @@ export const ChargingConnectorCard = ({ charger }) => {
         }}
             elevation={6}
         >
-            <div className={`connector-type-card-header ${charger.title}`}>{content[charger.title]}</div>
-            <div className={`connector-type-card ${charger.title}`}>
-                <div className='connector-type-card-type'>{charger.type}</div>
+            <div className={`connector-type-card-header ${charger.type}`}>{content[charger.header]}</div>
+            <div className={`connector-type-card ${charger.type}`}>
+                <div className='connector-type-card-type'>{charger.name}</div>
                 <div className='connector-type-card-ico-block'>
                     <div className='connector-type-card-ico'></div>
                     <div className='connector-type-card-ico-description'>
