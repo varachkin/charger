@@ -89,12 +89,48 @@ button {
     font-weight: 400;
 }
 
+.subtitle.start{
+    text-align: start;
+}
+
+h3.subtitle {
+    text-align: center;
+    font-size: 3.75vw;
+    padding: 3vw 0;
+    font-weight: 400;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+h4.subtitle {
+    text-align: justify;
+    font-size: 3.25vw;
+    padding: 3vw 0;
+    font-weight: 400;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
 button.button {
     font-size: 4vw;
     padding: 3vw;
     width: 95%;
     border-radius: 1.5vw;
     background-color: #000000;
+    border: 0.5vw solid #000000;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+}
+
+button.button.outlined {
+    font-size: 4vw;
+    padding: 3vw;
+    width: 95%;
+    border-radius: 1.5vw;
+    background-color: #eeeeee;
+    border: 0.5vw solid #000000;
+    color: #000000;
     text-align: center;
     margin: 0 auto;
     display: block;
@@ -103,12 +139,20 @@ button.button {
 .link {
     color: #000000 !important;
     text-decoration-color: #000000 !important;
-    padding: 2vw !important;
+    padding: 2vw;
     display: block
 }
 
 button.button:active, button.button:focus, button.button:hover {
-    background-color: #1b1b1b;
+    outline: none !important;
+    background-color: #1b1b1b !important;
+    border: 0.5vw solid #000000 !important;
+}
+
+button.button.outlined:active, button.button.outlined:focus, button.button.outlined:hover {
+    outline: none !important;
+    background-color: #eeeeee !important;
+    border: 0.5vw solid #000000 !important;
 }
 
 .section {
@@ -136,7 +180,7 @@ button.button:active, button.button:focus, button.button:hover {
 }
 
 span.bold {
-    font-size: 2.5vw;
+    font-size: inherit;
     font-weight: 700;
     color: #000000;
 }

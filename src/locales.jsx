@@ -12,6 +12,9 @@ export const LANGUAGES_CONFIG = {
             CARD_INFO_SUBTITLE: 'lub podłącz wtyczkę do pojazdu',
             REST_CARD_TITLE: 'Pozostałe...',
         },
+        CARD: {
+            STATION: 'Stanowisko',
+        },
         CONNECTOR_TYPE_PAGE: {
             PAGE_TITLE: 'Wybierz typ złącza',
             PAGE_SUBTITLE: 'lub podłącz wtyczkę do pojazdu.',
@@ -31,12 +34,20 @@ export const LANGUAGES_CONFIG = {
         },
         CHARGING_PAGE: {
             TITLE_PAGE: 'Rozpoczęliśmy ładowanie Twojego pojazdu!',
+            TIME_PASSED: 'Upłynęło',
+            TIME_TO_FINISH: 'Koniec za',
+            INFO_SUBTITLE: 'Przydatne:',
+            INFO_LINK_RECIPT: 'Wystaw paragon',
+            INFO_LINK_INVOICE: 'Podaj dane do faktury'
         },
         BUTTONS: {
             GET_STARTED: 'Rozpocznij',
             BACK: 'wstecz',
             START_CHARGING: 'Rozpocznij ładowanie',
             FINISH_CHARGING: 'Zakończ ładowanie',
+            SUBMIT: 'Potwierdź',
+            YES: 'Tak',
+            NO: 'Nie',
         },
         FORM: {
             FORM_TITLE: 'Wymagane:',
@@ -51,6 +62,19 @@ export const LANGUAGES_CONFIG = {
         },
         PRIVATE_POLICY: {
             PRIVATE_POLICY_TITLE: 'Polityka Prywatności'
+        },
+        MODAL_CONTENT: {
+            TITLE_EMAIL: 'Podaj adres email',
+            ARTICLE_EMAIL_BOLD: 'Paragon z transakcji',
+            ARTICLE_EMAIL_REGULAR: ' zostanie automatycznie wysłany po zakończeniu ładowania.',
+            INPUT_PLACEHOLDER_EMAIL: 'Podaj adres email',
+            INPUT_LABEL_EMAIL: 'Twój Email',
+            TITLE_INVOICE: 'Dane do faktury',
+            SUBTITLE_INVOICE: 'Zeskanuj kod swoim telefonem aby wprowadzić dane do faktury.',
+            TITLE_FINISH: 'Zakończenie ładowania',
+            SUBTITLE_FINISH: 'Twój rachunek zostanie obciążony kwotą ',
+            SUBTITLE_SECOND_FINISH: 'Czy chcesz kontynuować?',
+
         }
     },
     en: {
@@ -65,6 +89,9 @@ export const LANGUAGES_CONFIG = {
             CARD_INFO_TITLE: 'Start charging',
             CARD_INFO_SUBTITLE: 'or plug in the vehicle',
             REST_CARD_TITLE: 'Others...',
+        },
+        CARD: {
+            STATION: 'Position',
         },
         CONNECTOR_TYPE_PAGE: {
             PAGE_TITLE: 'Select connector type',
@@ -85,12 +112,20 @@ export const LANGUAGES_CONFIG = {
         },
         CHARGING_PAGE: {
             TITLE_PAGE: 'We have started charging your vehicle!',
+            TIME_PASSED: "Elapsed",
+            TIME_TO_FINISH: "Ends in",
+            INFO_SUBTITLE: "Useful:",
+            INFO_LINK_RECIPT: "Issue a receipt",
+            INFO_LINK_INVOICE: "Provide invoice details",
         },
         BUTTONS: {
             GET_STARTED: 'Get started',
             BACK: 'back',
             START_CHARGING: 'Start charging',
             FINISH_CHARGING: 'Finish charging',
+            SUBMIT: 'Submit',
+            YES: 'Yes',
+            NO: 'No',
         },
         FORM: {
             FORM_TITLE: 'Required:',
@@ -106,5 +141,17 @@ export const LANGUAGES_CONFIG = {
         PRIVATE_POLICY: {
             PRIVATE_POLICY_TITLE: 'Privacy Policy'
         },
+        MODAL_CONTENT: {
+            TITLE_EMAIL: "Enter email address",
+            ARTICLE_EMAIL_BOLD: "Transaction receipt",
+            ARTICLE_EMAIL_REGULAR: " will be automatically sent after the charging is completed.",
+            INPUT_PLACEHOLDER_EMAIL: "Enter email address",
+            INPUT_LABEL_EMAIL: "Your Email",
+            TITLE_INVOICE: 'Invoice Details',
+            SUBTITLE_INVOICE: 'Scan the code with your phone to enter invoice details.',
+            TITLE_FINISH: "Charging Completion",
+            SUBTITLE_FINISH: "Your account will be charged an amount of ",
+            SUBTITLE_SECOND_FINISH: "Do you want to continue?"
+        }
     }
 }

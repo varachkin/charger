@@ -1,12 +1,13 @@
-import {LANGUAGES_CONFIG} from "../locales";
-import {Button} from "@mui/material";
+import { LANGUAGES_CONFIG } from "../locales";
+import { Button } from "@mui/material";
 
-export const ButtonCustom = ({children, onClick, disabled})=> {
-    return(
+export const ButtonCustom = ({ children, onClick, disabled, id, variant='contained' }) => {
+    return (
         <Button
-            variant="contained"
-            className="button"
-            color="secondary"
+            id={id}
+            variant={variant}
+            className={`button ${variant}`}
+            // color="secondary"
             onClick={onClick}
             disabled={disabled}
         >

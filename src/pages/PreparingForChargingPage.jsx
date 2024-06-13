@@ -15,7 +15,7 @@ import {Regulations} from "../components/Regulations";
 import {Policy} from "../components/Policy";
 
 export const PreparingForChargingPage = () => {
-    const [station, setStation] = useState(null)
+    const [stationID, setStationID] = useState(null)
     const {language} = useSelector(state => state.actionReducer)
     const location = useLocation();
     const navigate = useNavigate();
@@ -26,7 +26,7 @@ export const PreparingForChargingPage = () => {
         private_policy: false,
     })
     const [isError, setIsError] = useState(false)
-
+    console.log(location.state)
     const handleChange = (event) => {
         setIsChecked(prev => ({...prev, [event.target.name]: !prev[event.target.name]}))
     }
@@ -38,7 +38,7 @@ export const PreparingForChargingPage = () => {
     const handleGoToPayment = () => {
         if (isChecked.regulations && isChecked.private_policy) {
             setIsError(false)
-            navigate('/card-payment', {state: station})
+            navigate('/card-payment', {state: stationID})
         } else {
             setIsError(true)
         }
@@ -60,14 +60,14 @@ export const PreparingForChargingPage = () => {
     }
 
     useEffect(()=> {
-        setStation(location.state)
+        setStationID(location.state)
     },[])
     return (
         <>
             <div>
                 <h1 className="title">{LANGUAGES_CONFIG[language].PREPARING_FOR_CHARGING_PAGE.TITLE_PAGE}</h1>
                 <article className='article'>
-                    <div className='article-title'>asfasfa</div>
+                    <div className='article-title'>Title</div>
                     <div className='article-description'>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut beatae doloremque fugit illum
                         mollitia nihil nobis provident quisquam saepe tempore! Ab amet eveniet minus numquam rem
@@ -75,7 +75,7 @@ export const PreparingForChargingPage = () => {
                     </div>
                 </article>
                 <article className='article'>
-                    <div className='article-title'>asfasfa</div>
+                    <div className='article-title'>Title</div>
                     <div className='article-description'>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut beatae doloremque fugit illum
                         mollitia nihil nobis provident quisquam saepe tempore! Ab amet eveniet minus numquam rem
@@ -83,7 +83,7 @@ export const PreparingForChargingPage = () => {
                     </div>
                 </article>
                 <article className='article'>
-                    <div className='article-title'>asfasfa</div>
+                    <div className='article-title'>Title</div>
                     <div className='article-description'>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut beatae doloremque fugit illum
                         mollitia nihil nobis provident quisquam saepe tempore! Ab amet eveniet minus numquam rem
@@ -99,7 +99,7 @@ export const PreparingForChargingPage = () => {
                         sx={{
                             '& .MuiFormHelperText-root': {fontSize: '3vw', color: '#A50011'},
                             '& .MuiSvgIcon-root': {fontSize: '4.5vw'},
-                            '& .MuiTypography-root': {fontSize: '3vw'}
+                            '& .MuiTypography-root': {fontSize: '3vw', padding: '0 2vw'}
                         }}
                         component="fieldset"
                         variant="standard"

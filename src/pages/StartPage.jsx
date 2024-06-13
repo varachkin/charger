@@ -5,7 +5,6 @@ import {Footer} from "../components/Footer";
 import {Grid} from "@mui/material";
 import {useState} from "react";
 import {ChargingStationCard} from "../components/ChargingStationCard";
-import {array} from "../constants";
 import {InfoStationCard} from "../components/InfoStationCard";
 import {v4 as uuidv4} from 'uuid';
 import {ButtonCustom} from "../components/ButtonCustom";
@@ -14,6 +13,7 @@ import {ButtonCustom} from "../components/ButtonCustom";
 export const StartPage = () => {
     const [isEmptyStation, setIsEmptyStation] = useState(false)
     const {language} = useSelector(state => state.actionReducer);
+    const {stations} = useSelector(state => state.dataReducer);
     const navigate = useNavigate()
 
     const handleGoNext = () => {
@@ -42,7 +42,7 @@ export const StartPage = () => {
                             <div className="stations-list">
                                 <Grid container rowSpacing={3} columnSpacing={3} justifyContent='center'
                                       sx={{padding: '1rem'}}>
-                                    {array.map((item, index, arr) => (
+                                    {stations.map((item, index, arr) => (
                                         <Grid item key={index} flexGrow={1} minWidth={arr.length === 1 ? '100%' : '50%'}
                                               justifyContent='center'>
                                             <ChargingStationCard item={item}/>

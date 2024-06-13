@@ -40,14 +40,14 @@
     align-items: center;
     justify-content: center;
     font-size: 6vw;
-    flex: 1;
+    flex: 4;
 }
 .connector-type-card-cost{
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 3.25vw;
-    flex: 1;
+    flex: 4;
 }
 .connector-type-card-ico-block{
     height: 100%;
@@ -55,7 +55,7 @@
     flex-direction: column;
     /* align-items: center; */
     justify-content: center;
-    flex: 1;
+    flex: 2;
 }
 .connector-type-card-ico{
     background-repeat: no-repeat;

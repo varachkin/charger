@@ -2,15 +2,11 @@ export const COST = 0.3718;
 export const BATARY_SIZE = 85;
 
 
-export const array = [
+export const stations = [
     {
         id: 1,
-        name: {
-            pl: 'Stanowisko',
-            en: 'Position',
-        },
         number: 1,
-        status: 'ready',
+        status: 'compleated',
         charger: {
             id: 1,
             header: 'eco',
@@ -24,10 +20,6 @@ export const array = [
     },
     {
         id: 2,
-        name: {
-            pl: 'Stanowisko',
-            en: 'Position',
-        },
         number: 2,
         status: 'charging',
         charger: {
@@ -40,15 +32,20 @@ export const array = [
             currency: 'zl',
             type: 'ccs',
         },
+        client_data: {
+            id: 1,
+            email: 'varachkin@tut.by',
+            start_value: 0,
+            current_value: 0,
+            start_time: 0,
+            current_time: 0,
+            total_ammount: 0,
+        }
     },
     {
         id: 3,
-        name: {
-            pl: 'Stanowisko',
-            en: 'Position',
-        },
         number: 116,
-        status: 'ready',
+        status: 'compleated',
         charger: {
             id: 1,
             header: 'eco',
@@ -58,14 +55,19 @@ export const array = [
             cost: 1.95,
             currency: 'zl',
             type: 'type_2',
+        },
+        client_data: {
+            id: 1,
+            email: 'varachkin@tut.by',
+            start_value: 0,
+            current_value: 0,
+            start_time: 0,
+            current_time: 0,
+            total_ammount: 0,
         }
     },
     {
         id: 4,
-        name: {
-            pl: 'Stanowisko',
-            en: 'Position',
-        },
         number: 8,
         status: 'charging',
         charger: {
@@ -78,13 +80,18 @@ export const array = [
             currency: 'zl',
             type: 'ccs',
         },
+        client_data: {
+            id: 1,
+            email: 'varachkin@tut.by',
+            start_value: 0,
+            current_value: 0,
+            start_time: 0,
+            current_time: 0,
+            total_ammount: 0,
+        }
     },
     {
         id: 5,
-        name: {
-            pl: 'Stanowisko',
-            en: 'Position',
-        },
         number: 23,
         status: 'success',
         charger: {
@@ -96,14 +103,19 @@ export const array = [
             cost: 1.95,
             currency: 'zl',
             type: 'type_2',
+        },
+        client_data: {
+            id: 1,
+            email: 'varachkin@tut.by',
+            start_value: 0,
+            current_value: 0,
+            start_time: 0,
+            current_time: 0,
+            total_ammount: 0,
         }
     },
     {
         id: 6,
-        name: {
-            pl: 'Stanowisko',
-            en: 'Position',
-        },
         number: 11,
         status: 'not_available',
         charger: {
@@ -115,14 +127,19 @@ export const array = [
             cost: 1.95,
             currency: 'zl',
             type: 'type_2',
+        },
+        client_data: {
+            id: 1,
+            email: 'varachkin@tut.by',
+            start_value: 0,
+            current_value: 0,
+            start_time: 0,
+            current_time: 0,
+            total_ammount: 0,
         }
     },
     {
         id: 7,
-        name: {
-            pl: 'Stanowisko',
-            en: 'Position',
-        },
         number: 12,
         status: 'error',
         charger: {
@@ -134,14 +151,19 @@ export const array = [
             cost: 1.95,
             currency: 'zl',
             type: 'type_2',
+        },
+        client_data: {
+            id: 1,
+            email: 'varachkin@tut.by',
+            start_value: 0,
+            current_value: 0,
+            start_time: 0,
+            current_time: 0,
+            total_ammount: 0,
         }
     },
     {
         id: 8,
-        name: {
-            pl: 'Stanowisko',
-            en: 'Position',
-        },
         number: 12,
         status: 'error',
         charger: {
@@ -154,10 +176,19 @@ export const array = [
             currency: 'zl',
             type: 'ccs',
         },
+        client_data: {
+            id: 1,
+            email: 'varachkin@tut.by',
+            start_value: 0,
+            current_value: 0,
+            start_time: 0,
+            current_time: 0,
+            total_ammount: 0,
+        }
     },
 ]
 
-export const typesChargers = [
+export const chargerTypes = [
     {
         id: 1,
         header: 'eco',

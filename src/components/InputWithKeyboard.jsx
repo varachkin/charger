@@ -1,19 +1,20 @@
-import React, {useState, useRef, useEffect} from "react";
+import React, { useState, useRef, useEffect } from "react";
 import ReactDOM from "react-dom";
 import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
-import {TextField} from "@mui/material";
+import { InputLabel, TextField } from "@mui/material";
 // import {FaEye, FaEyeSlash} from "react-icons/fa";
 
 export const InputWithKeyboard = ({
-                                      id = ['input_without_id'],
-                                      placeholder,
-                                      type = 'text',
-                                      handleSubmit = null,
-                                      getValue = null,
-                                      className = '',
-                                      defaultValue = ''
-                                  }) => {
+    id = ['input_without_id'],
+    placeholder,
+    label,
+    type = 'text',
+    handleSubmit = null,
+    getValue = null,
+    className = '',
+    defaultValue = ''
+}) => {
     const [layoutName, setLayoutName] = useState("ip");
     const [layoutType, setLayoutType] = useState(type === 'password' ? 'text' : type);
     const [inputName, setInputName] = useState();
@@ -37,7 +38,7 @@ export const InputWithKeyboard = ({
         "{lock}": 'Caps',
         "{123}": '123',
         "{hide}": '▼',
-        "{at}" : '@',
+        "{at}": '@',
     };
 
     const customLayout = {
@@ -62,19 +63,18 @@ export const InputWithKeyboard = ({
         number: ["1 2 3", "4 5 6", "7 8 9", "{bksp} 0 {enter}"]
     };
 
-
     const onChangeAll = (inputObj) => {
         setInput(inputObj);
-        if(getValue){
-            getValue({[id]: inputObj[id]})
+        if (getValue) {
+            getValue({ [id]: inputObj[id] })
         }
     };
 
     const onKeyPress = (button, event) => {
         if (button === "{shift}") handleShift();
         if (button === "{123}") handle123();
-        if (button === "{at}")  keyboardRef.current.setInput(keyboardRef?.current?.getInput(inputName) + '@')
-        if (button === "{dot}")  keyboardRef.current.setInput(keyboardRef?.current?.getInput(inputName) + '.')
+        if (button === "{at}") keyboardRef.current.setInput(keyboardRef?.current?.getInput(inputName) + '@')
+        if (button === "{dot}") keyboardRef.current.setInput(keyboardRef?.current?.getInput(inputName) + '.')
         if (button === "{clear}") clearScreen();
         if (button === "{enter}") submit(event);
         if (button === "{change}" && keyboardRef?.current?.getInput(inputName) && keyboardRef?.current?.getInput(inputName) !== '-.') {
@@ -94,14 +94,14 @@ export const InputWithKeyboard = ({
         event.preventDefault()
         inputRef.current.blur()
         if (handleSubmit) handleSubmit();
-        setTimeout(()=> setKeyboardOpen(false), 0)
+        setTimeout(() => setKeyboardOpen(false), 0)
     }
 
     const handleShift = () => {
-        if(layoutType === 'text' || layoutType === 'shift')
-        setLayoutType((prevLayout) =>
-            prevLayout === "text" ? "shift" : "text"
-        );
+        if (layoutType === 'text' || layoutType === 'shift')
+            setLayoutType((prevLayout) =>
+                prevLayout === "text" ? "shift" : "text"
+            );
     };
     const handle123 = () => {
         setLayoutType((prevLayout) =>
@@ -127,7 +127,7 @@ export const InputWithKeyboard = ({
     };
 
     const clearInput = () => {
-        const updatedInput = {...input};
+        const updatedInput = { ...input };
         updatedInput[inputName] = "";
         if (keyboardRef) {
             keyboardRef.current.clearInput(inputName)
@@ -175,8 +175,8 @@ export const InputWithKeyboard = ({
         [id].forEach((id) => {
             keyboardValues[id] = input[id] || ''
         })
-        if(getValue){
-            getValue({[`${id}`]: input[id]})
+        if (getValue) {
+            getValue({ [`${id}`]: input[id] })
         }
     }, [input])
 
@@ -186,15 +186,15 @@ export const InputWithKeyboard = ({
         }
     }, [inputName])
 
-    useEffect(()=> {
+    useEffect(() => {
         const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-        if(input[id] && !emailRegex.test(input[id]) ){
+        if (input[id] && !emailRegex.test(input[id])) {
             console.log(emailRegex.test(input[id]))
             setIsError(true)
-        }else{
+        } else {
             setIsError(false)
         }
-    },[input[id]])
+    }, [input[id]])
 
     return (
         <div ref={keyboardContainerRef} className="input-wrapper" >
@@ -203,9 +203,20 @@ export const InputWithKeyboard = ({
                 return (
                     <React.Fragment key={id}>
                         <TextField
-                            sx={{'& .MuiInputBase-root': {fontSize: '4vw'}}}
-                            size="medium"
-                            label={placeholder}
+                            
+                            sx={{
+                                '& .MuiInputBase-input': { fontSize: '2.75vw', padding: '1vw' },
+                                '& .MuiInputLabel-root': { 
+                                    fontSize: '2.75vw',  display: 'flex', alignItems: 'center', left: '1vw' , top:'-0.65vw'
+                                },
+                                '& .Mui-focused, .Mui-error, .MuiOutlinedInput-notchedOutline': {
+                                    fontSize: '2.75vw', height: 'auto',
+                                    
+                                },
+                                '& .MuiFormHelperText-root': { fontSize: '2vw', lineHeight: '1.5vw', padding: '1vw' },
+                            }}
+                            // InputLabelProps={{ style: {fontSize: '3vw'} }}
+                            label={label}
                             variant="outlined"
                             className={`keyboard-input ${className}`}
                             inputRef={inputRef}
@@ -222,7 +233,7 @@ export const InputWithKeyboard = ({
                             onTouchStart={handleChangeInputType}
                             onTouchEnd={handleChangeInputType}
                         >
-                            {inputType === 'password' ? <FaEye/> : <FaEyeSlash/>}
+                            {inputType === 'password' ? <FaEye /> : <FaEyeSlash />}
                         </span>}
                     </React.Fragment>
                 )

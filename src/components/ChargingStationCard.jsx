@@ -14,14 +14,14 @@ export const ChargingStationCard = ({ item, handleGoToPreparingCharge=()=>{} }) 
     const { language } = useSelector(state => state.actionReducer)
 
     const subtitles = {
-        ready: LANGUAGES_CONFIG[language].START_PAGE.CARD_READY,
+        compleated: LANGUAGES_CONFIG[language].START_PAGE.CARD_READY,
         charging: LANGUAGES_CONFIG[language].START_PAGE.CARD_CHARGING,
         success: LANGUAGES_CONFIG[language].START_PAGE.CARD_SUCCESS,
         not_available: LANGUAGES_CONFIG[language].START_PAGE.CARD_NOT_AVAILABLE,
         error: LANGUAGES_CONFIG[language].START_PAGE.CARD_ERROR
     }
     return (
-        <div onClick={()=> handleGoToPreparingCharge(item)}>
+        <div onClick={()=> handleGoToPreparingCharge(item.id)}>
             <Paper
                 sx={{
                     height: '30vh',
@@ -33,7 +33,7 @@ export const ChargingStationCard = ({ item, handleGoToPreparingCharge=()=>{} }) 
                 className='station-card-wrapper'
             >
                 <div className='station-card-number'>{item.number}</div>
-                <div className='station-card-name'>{item.name[language]}</div>
+                <div className='station-card-name'>{LANGUAGES_CONFIG[language].CARD.STATION}</div>
                 <div className='station-card-icon-wrapper'>
                     <div className={`station-card-icon ${item.status}`}></div>
                 </div>

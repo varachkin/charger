@@ -1,7 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { InputWithKeyboard } from "../components/InputWithKeyboard";
 import SwiperCube from "../components/SwiperCube";
-import { array } from "../constants";
 import { LANGUAGES_CONFIG } from "../locales";
 import { useSelector } from "react-redux";
 import { Footer } from "../components/Footer";
@@ -11,22 +9,21 @@ export const ChooseStationPage = () => {
     const location = useLocation()
     const navigate = useNavigate()
     const { language } = useSelector(state => state.actionReducer)
-    const { chargerType } = location.state
+    const { stations } = useSelector(state => state.dataReducer)
 
 const handleBack = ()=> {
     navigate(-1)
 }
 
-const handleGoToPreparingCharge = (station)=> {
-    navigate('/preparing', {state: station})
+const handleGoToPreparingCharge = (id)=> {
+    navigate('/preparing', {state: id})
 }
 
-    console.log(chargerType)
     return (
         <>
             <div>
                 <h1 className="title">{LANGUAGES_CONFIG[language].CHOOSE_STATION_PAGE.TITLE_PAGE}</h1>
-                <SwiperCube stations={array} handleGoToPreparingCharge={handleGoToPreparingCharge}/>
+                <SwiperCube stations={stations} handleGoToPreparingCharge={handleGoToPreparingCharge}/>
             </div>
             <Footer>
                 <Link
