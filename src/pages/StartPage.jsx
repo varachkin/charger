@@ -8,6 +8,7 @@ import {ChargingStationCard} from "../components/ChargingStationCard";
 import {InfoStationCard} from "../components/InfoStationCard";
 import {v4 as uuidv4} from 'uuid';
 import {ButtonCustom} from "../components/ButtonCustom";
+import { STATIONS } from "../constants";
 
 
 export const StartPage = () => {
@@ -42,7 +43,7 @@ export const StartPage = () => {
                             <div className="stations-list">
                                 <Grid container rowSpacing={3} columnSpacing={3} justifyContent='center'
                                       sx={{padding: '1rem'}}>
-                                    {stations.map((item, index, arr) => (
+                                    {STATIONS.map((item, index, arr) => (
                                         <Grid item key={index} flexGrow={1} minWidth={arr.length === 1 ? '100%' : '50%'}
                                               justifyContent='center'>
                                             <ChargingStationCard item={item}/>

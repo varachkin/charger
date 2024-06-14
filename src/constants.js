@@ -255,7 +255,7 @@ export const STATIONS = [
         currentPowerKw: 0,
         currentPowerA: 0,
         acDcPowerRatio: 0.87,
-        status: "Operative",
+        status: "Faulted",
         onlineStatus: "Online",
         connectors: [
             {
@@ -292,8 +292,8 @@ export const STATIONS = [
         currentPowerKw: 0,
         currentPowerA: 0,
         acDcPowerRatio: 0.87,
-        status: "Operative",
-        onlineStatus: "Online",
+        status: "Faulted",
+        onlineStatus: "Offline",
         connectors: [
             {
                 connectorId: "12",
@@ -329,7 +329,7 @@ export const STATIONS = [
         currentPowerKw: 0,
         currentPowerA: 0,
         acDcPowerRatio: 0.87,
-        status: "Operative",
+        status: "Faulted",
         onlineStatus: "Online",
         connectors: [
             {
