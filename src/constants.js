@@ -214,17 +214,18 @@ export const chargerTypes = [
 
 export const STATIONS = [
     {
+        id: 1,
         maxPowerKw: 50,
         currentPowerKw: 0,
         currentPowerA: 0,
         acDcPowerRatio: 0.87,
-        status: "Operative",  // Operative | Faulted
-        onlineStatus: "Online",  // Online | Offline
+        status: "Operative",            // "Faulted" | "Operative" | "Unavailable"
+        onlineStatus: "Online",         //  "Offline" | "Online"
         connectors: [
             {
                 connectorId: "12",
                 type: "CCS",
-                status: "Available",
+                status: "Available",    //   Available | Occupied | Unknown
                 name: null,
                 maxPowerKw: 40,
                 maxPowerKwActual: 37.949,
@@ -233,7 +234,7 @@ export const STATIONS = [
                     transactionId: `2561d118-5733-4e2f-b066-cb4cb32a00ef-1`,
                     connectorId: "12",
                     connectorType: "CCS",
-                    status: "Ended",
+                    status: "Alarm",    //  "Alarm" | "AuthorizedNotPluggedIn" | "Charging" | "Ended" | "InsulationTest" | "PluggedInIdle" | "Unknown"
                     startReason: "RemoteStart",
                     chargedEnergyKwh: 0.441,
                     chargingEndReason: "Remote",
@@ -251,6 +252,7 @@ export const STATIONS = [
         ]
     },
     {
+        id: 2,
         maxPowerKw: 50,
         currentPowerKw: 0,
         currentPowerA: 0,
@@ -270,7 +272,7 @@ export const STATIONS = [
                     transactionId: `2561d118-5733-4e2f-b066-cb4cb32a00ef-2`,
                     connectorId: "12",
                     connectorType: "CCS",
-                    status: "Ended",
+                    status: "AuthorizedNotPluggedIn",
                     startReason: "RemoteStart",
                     chargedEnergyKwh: 0.441,
                     chargingEndReason: "Remote",
@@ -288,6 +290,7 @@ export const STATIONS = [
         ]
     },
     {
+        id: 3,
         maxPowerKw: 50,
         currentPowerKw: 0,
         currentPowerA: 0,
@@ -307,7 +310,7 @@ export const STATIONS = [
                     transactionId: `2561d118-5733-4e2f-b066-cb4cb32a00ef-3`,
                     connectorId: "12",
                     connectorType: "CCS",
-                    status: "Ended",
+                    status: "Charging",
                     startReason: "RemoteStart",
                     chargedEnergyKwh: 0.441,
                     chargingEndReason: "Remote",
@@ -325,6 +328,7 @@ export const STATIONS = [
         ]
     },
     {
+        id: 4,
         maxPowerKw: 50,
         currentPowerKw: 0,
         currentPowerA: 0,
@@ -362,6 +366,7 @@ export const STATIONS = [
         ]
     },
     {
+        id: 5,
         maxPowerKw: 50,
         currentPowerKw: 0,
         currentPowerA: 0,
@@ -381,7 +386,7 @@ export const STATIONS = [
                     transactionId: `2561d118-5733-4e2f-b066-cb4cb32a00ef-5`,
                     connectorId: "12",
                     connectorType: "CCS",
-                    status: "Ended",
+                    status: "InsulationTest",
                     startReason: "RemoteStart",
                     chargedEnergyKwh: 0.441,
                     chargingEndReason: "Remote",
@@ -399,6 +404,7 @@ export const STATIONS = [
         ]
     },
     {
+        id: 6,
         maxPowerKw: 50,
         currentPowerKw: 0,
         currentPowerA: 0,
@@ -418,7 +424,7 @@ export const STATIONS = [
                     transactionId: `2561d118-5733-4e2f-b066-cb4cb32a00ef-6`,
                     connectorId: "12",
                     connectorType: "CCS",
-                    status: "Ended",
+                    status: "PluggedInIdle",
                     startReason: "RemoteStart",
                     chargedEnergyKwh: 0.441,
                     chargingEndReason: "Remote",
@@ -436,6 +442,7 @@ export const STATIONS = [
         ]
     },
     {
+        id: 7,
         maxPowerKw: 50,
         currentPowerKw: 0,
         currentPowerA: 0,
@@ -473,11 +480,12 @@ export const STATIONS = [
         ]
     },
     {
+        id: 8,
         maxPowerKw: 50,
         currentPowerKw: 0,
         currentPowerA: 0,
         acDcPowerRatio: 0.87,
-        status: "Operative",
+        status: "Unavailable",
         onlineStatus: "Online",
         connectors: [
             {
@@ -492,7 +500,7 @@ export const STATIONS = [
                     transactionId: `2561d118-5733-4e2f-b066-cb4cb32a00ef-8`,
                     connectorId: "12",
                     connectorType: "CCS",
-                    status: "Ended",
+                    status: "Unknown",
                     startReason: "RemoteStart",
                     chargedEnergyKwh: 0.441,
                     chargingEndReason: "Remote",

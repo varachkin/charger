@@ -32,7 +32,7 @@ export const ChargingStationCard = ({ item, handleGoToPreparingCharge=()=>{} }) 
                 elevation={isAvailable ? 0 : 6}
                 className='station-card-wrapper'
             >
-                <div className='station-card-number'>{item.number}</div>
+                <div className='station-card-number'>{item.id}</div>
                 <div className='station-card-name'>{LANGUAGES_CONFIG[language].CARD.STATION}</div>
                 <div className='station-card-icon-wrapper'>
                     <div className={`station-card-icon ${item.status}`}></div>
