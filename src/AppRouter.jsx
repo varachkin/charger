@@ -8,6 +8,8 @@ import { ChooseStationPage } from "./pages/ChooseStationPage";
 import { PreparingForChargingPage } from "./pages/PreparingForChargingPage";
 import { CardPaymentPage } from "./pages/CardPaymentPage";
 import { ChargingPage } from "./pages/ChargingPage";
+import { RatingPage } from "./pages/RatingPage";
+import { ThanksPage } from "./pages/ThanksPage";
 
 export default function AppRouter(props) {
     return (
@@ -20,6 +22,8 @@ export default function AppRouter(props) {
                     <Route path="/preparing" element={<PreparingForChargingPage {...props} error={<ErrorBoundary />} />} />
                     <Route path="/card-payment" element={<CardPaymentPage {...props} error={<ErrorBoundary />} />} />
                     <Route path="/charging" element={<ChargingPage {...props} error={<ErrorBoundary />} />} />
+                    <Route path="/raiting" element={<RatingPage {...props} error={<ErrorBoundary />} />} />
+                    <Route path="/thanks" element={<ThanksPage {...props} error={<ErrorBoundary />} />} />
                     <Route path="/page_2" element={<Page_2 {...props} error={<ErrorBoundary />} />} />
                 </Routes>
             </Wrapper>

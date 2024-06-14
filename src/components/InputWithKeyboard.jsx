@@ -13,7 +13,8 @@ export const InputWithKeyboard = ({
     handleSubmit = null,
     getValue = null,
     className = '',
-    defaultValue = ''
+    defaultValue = '',
+    error
 }) => {
     const [layoutName, setLayoutName] = useState("ip");
     const [layoutType, setLayoutType] = useState(type === 'password' ? 'text' : type);
@@ -24,7 +25,6 @@ export const InputWithKeyboard = ({
     const inputRef = useRef(null)
     const keyboardRef = useRef(null);
     const keyboardContainerRef = useRef(null);
-    const [isError, setIsError] = useState(false)
 
     const customDisplay = {
         "{bksp}": "⌫",
@@ -186,15 +186,7 @@ export const InputWithKeyboard = ({
         }
     }, [inputName])
 
-    useEffect(() => {
-        const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-        if (input[id] && !emailRegex.test(input[id])) {
-            console.log(emailRegex.test(input[id]))
-            setIsError(true)
-        } else {
-            setIsError(false)
-        }
-    }, [input[id]])
+ 
 
     return (
         <div ref={keyboardContainerRef} className="input-wrapper" >
@@ -226,8 +218,8 @@ export const InputWithKeyboard = ({
                             // placeholder={placeholder || id}
                             onChange={(e) => onChangeInput(e)}
                             type={inputType}
-                            error={isError}
-                            helperText={isError ? 'Error' : ''}
+                            error={error}
+                            helperText={error ? 'Error' : ''}
                         />
                         {type === 'password' && <span
                             onTouchStart={handleChangeInputType}

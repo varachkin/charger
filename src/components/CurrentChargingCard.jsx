@@ -7,12 +7,15 @@ import { LinkCustom } from "./LinkCustom"
 import { useEffect, useState } from "react"
 import { Modal } from "./Modal"
 import { InvoiceModal } from "./InvoiceModal"
-import { ReciptModal } from "./ReciptModal"
+// import { ReciptModal } from "./ReciptModal"
 import { FinishModal } from "./FinishModal"
 import { stationToCharging, stationToCompleate } from "../features/data/dataSlice"
+import { ReciptModal } from "./ReciptModal"
+import { useNavigate } from "react-router-dom"
 
 export const CurrentChargingCard = ({ station }) => {
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const { language } = useSelector(state => state.actionReducer);
     const [isOpenModal, setIsOpenModal] = useState(false)
     const [modalContent, setModalContent] = useState(null)
@@ -31,6 +34,11 @@ export const CurrentChargingCard = ({ station }) => {
     const handleReadyStation = () => {
         dispatch(stationToCompleate(station.id))
         setIsOpenModal(false)
+    }
+
+    const handleCompleate = ()=> {
+        console.log('compleate')
+        navigate('/raiting')
     }
 
     useEffect(() => {
@@ -80,11 +88,13 @@ export const CurrentChargingCard = ({ station }) => {
                 </Typography>
             </div>
             <div className="current-charging-card-footer">
-                <ButtonCustom className='button' id='_FINISH' onClick={handleOpenModal}>{LANGUAGES_CONFIG[language].BUTTONS.FINISH_CHARGING}</ButtonCustom>
+                {station.status === 'charging' ? 
+                <ButtonCustom className='button' id='_FINISH' onClick={handleOpenModal}>{LANGUAGES_CONFIG[language].BUTTONS.FINISH_CHARGING}</ButtonCustom> : 
+                <ButtonCustom className='button' onClick={handleCompleate}>{LANGUAGES_CONFIG[language].BUTTONS.COMPLEATE_CHARGING}</ButtonCustom>}
             </div>
         </Paper >
             { isOpenModal && <Modal handleCloseModal={handleCloseModal} finishView={modalContent === '_FINISH'} handleAction={handleReadyStation}>
-                {modalContent === '_RECIPT' ? (<ReciptModal />) :
+                {modalContent === '_RECIPT' ? (<ReciptModal handleCloseModal={handleCloseModal}/>) :
                     modalContent === '_INVOICE' ? (<InvoiceModal />) :
                         modalContent === '_FINISH' ? (<FinishModal />) :
                             null

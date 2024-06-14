@@ -210,3 +210,303 @@ export const chargerTypes = [
         type: 'ccs',
     },
 ]
+
+
+export const STATIONS = [
+    {
+        maxPowerKw: 50,
+        currentPowerKw: 0,
+        currentPowerA: 0,
+        acDcPowerRatio: 0.87,
+        status: "Operative",  // Operative | Faulted
+        onlineStatus: "Online",  // Online | Offline
+        connectors: [
+            {
+                connectorId: "12",
+                type: "CCS",
+                status: "Available",
+                name: null,
+                maxPowerKw: 40,
+                maxPowerKwActual: 37.949,
+                latestTransaction: {
+                    stationId: null,
+                    transactionId: `2561d118-5733-4e2f-b066-cb4cb32a00ef-1`,
+                    connectorId: "12",
+                    connectorType: "CCS",
+                    status: "Ended",
+                    startReason: "RemoteStart",
+                    chargedEnergyKwh: 0.441,
+                    chargingEndReason: "Remote",
+                    startTime: "2024-06-14T08:07:48.596",
+                    chargingEndTime: "2024-06-14T08:09:29.594",
+                    endReason: "EVDisconnected",
+                    endTime: "2024-06-14T08:09:43.935",
+                    soc: 51,
+                    socStart: 51,
+                    socEnd: null,
+                    timeToFull: null,
+                    updateTime: "2024-06-14T08:09:43.935"
+                }
+            }
+        ]
+    },
+    {
+        maxPowerKw: 50,
+        currentPowerKw: 0,
+        currentPowerA: 0,
+        acDcPowerRatio: 0.87,
+        status: "Operative",
+        onlineStatus: "Online",
+        connectors: [
+            {
+                connectorId: "12",
+                type: "CCS",
+                status: "Available",
+                name: null,
+                maxPowerKw: 40,
+                maxPowerKwActual: 37.949,
+                latestTransaction: {
+                    stationId: null,
+                    transactionId: `2561d118-5733-4e2f-b066-cb4cb32a00ef-2`,
+                    connectorId: "12",
+                    connectorType: "CCS",
+                    status: "Ended",
+                    startReason: "RemoteStart",
+                    chargedEnergyKwh: 0.441,
+                    chargingEndReason: "Remote",
+                    startTime: "2024-06-14T08:07:48.596",
+                    chargingEndTime: "2024-06-14T08:09:29.594",
+                    endReason: "EVDisconnected",
+                    endTime: "2024-06-14T08:09:43.935",
+                    soc: 51,
+                    socStart: 51,
+                    socEnd: null,
+                    timeToFull: null,
+                    updateTime: "2024-06-14T08:09:43.935"
+                }
+            }
+        ]
+    },
+    {
+        maxPowerKw: 50,
+        currentPowerKw: 0,
+        currentPowerA: 0,
+        acDcPowerRatio: 0.87,
+        status: "Operative",
+        onlineStatus: "Online",
+        connectors: [
+            {
+                connectorId: "12",
+                type: "CCS",
+                status: "Available",
+                name: null,
+                maxPowerKw: 40,
+                maxPowerKwActual: 37.949,
+                latestTransaction: {
+                    stationId: null,
+                    transactionId: `2561d118-5733-4e2f-b066-cb4cb32a00ef-3`,
+                    connectorId: "12",
+                    connectorType: "CCS",
+                    status: "Ended",
+                    startReason: "RemoteStart",
+                    chargedEnergyKwh: 0.441,
+                    chargingEndReason: "Remote",
+                    startTime: "2024-06-14T08:07:48.596",
+                    chargingEndTime: "2024-06-14T08:09:29.594",
+                    endReason: "EVDisconnected",
+                    endTime: "2024-06-14T08:09:43.935",
+                    soc: 51,
+                    socStart: 51,
+                    socEnd: null,
+                    timeToFull: null,
+                    updateTime: "2024-06-14T08:09:43.935"
+                }
+            }
+        ]
+    },
+    {
+        maxPowerKw: 50,
+        currentPowerKw: 0,
+        currentPowerA: 0,
+        acDcPowerRatio: 0.87,
+        status: "Operative",
+        onlineStatus: "Online",
+        connectors: [
+            {
+                connectorId: "12",
+                type: "CCS",
+                status: "Available",
+                name: null,
+                maxPowerKw: 40,
+                maxPowerKwActual: 37.949,
+                latestTransaction: {
+                    stationId: null,
+                    transactionId: `2561d118-5733-4e2f-b066-cb4cb32a00ef-4`,
+                    connectorId: "12",
+                    connectorType: "CCS",
+                    status: "Ended",
+                    startReason: "RemoteStart",
+                    chargedEnergyKwh: 0.441,
+                    chargingEndReason: "Remote",
+                    startTime: "2024-06-14T08:07:48.596",
+                    chargingEndTime: "2024-06-14T08:09:29.594",
+                    endReason: "EVDisconnected",
+                    endTime: "2024-06-14T08:09:43.935",
+                    soc: 51,
+                    socStart: 51,
+                    socEnd: null,
+                    timeToFull: null,
+                    updateTime: "2024-06-14T08:09:43.935"
+                }
+            }
+        ]
+    },
+    {
+        maxPowerKw: 50,
+        currentPowerKw: 0,
+        currentPowerA: 0,
+        acDcPowerRatio: 0.87,
+        status: "Operative",
+        onlineStatus: "Online",
+        connectors: [
+            {
+                connectorId: "12",
+                type: "CCS",
+                status: "Available",
+                name: null,
+                maxPowerKw: 40,
+                maxPowerKwActual: 37.949,
+                latestTransaction: {
+                    stationId: null,
+                    transactionId: `2561d118-5733-4e2f-b066-cb4cb32a00ef-5`,
+                    connectorId: "12",
+                    connectorType: "CCS",
+                    status: "Ended",
+                    startReason: "RemoteStart",
+                    chargedEnergyKwh: 0.441,
+                    chargingEndReason: "Remote",
+                    startTime: "2024-06-14T08:07:48.596",
+                    chargingEndTime: "2024-06-14T08:09:29.594",
+                    endReason: "EVDisconnected",
+                    endTime: "2024-06-14T08:09:43.935",
+                    soc: 51,
+                    socStart: 51,
+                    socEnd: null,
+                    timeToFull: null,
+                    updateTime: "2024-06-14T08:09:43.935"
+                }
+            }
+        ]
+    },
+    {
+        maxPowerKw: 50,
+        currentPowerKw: 0,
+        currentPowerA: 0,
+        acDcPowerRatio: 0.87,
+        status: "Operative",
+        onlineStatus: "Online",
+        connectors: [
+            {
+                connectorId: "12",
+                type: "CCS",
+                status: "Available",
+                name: null,
+                maxPowerKw: 40,
+                maxPowerKwActual: 37.949,
+                latestTransaction: {
+                    stationId: null,
+                    transactionId: `2561d118-5733-4e2f-b066-cb4cb32a00ef-6`,
+                    connectorId: "12",
+                    connectorType: "CCS",
+                    status: "Ended",
+                    startReason: "RemoteStart",
+                    chargedEnergyKwh: 0.441,
+                    chargingEndReason: "Remote",
+                    startTime: "2024-06-14T08:07:48.596",
+                    chargingEndTime: "2024-06-14T08:09:29.594",
+                    endReason: "EVDisconnected",
+                    endTime: "2024-06-14T08:09:43.935",
+                    soc: 51,
+                    socStart: 51,
+                    socEnd: null,
+                    timeToFull: null,
+                    updateTime: "2024-06-14T08:09:43.935"
+                }
+            }
+        ]
+    },
+    {
+        maxPowerKw: 50,
+        currentPowerKw: 0,
+        currentPowerA: 0,
+        acDcPowerRatio: 0.87,
+        status: "Operative",
+        onlineStatus: "Online",
+        connectors: [
+            {
+                connectorId: "12",
+                type: "CCS",
+                status: "Available",
+                name: null,
+                maxPowerKw: 40,
+                maxPowerKwActual: 37.949,
+                latestTransaction: {
+                    stationId: null,
+                    transactionId: `2561d118-5733-4e2f-b066-cb4cb32a00ef-7`,
+                    connectorId: "12",
+                    connectorType: "CCS",
+                    status: "Ended",
+                    startReason: "RemoteStart",
+                    chargedEnergyKwh: 0.441,
+                    chargingEndReason: "Remote",
+                    startTime: "2024-06-14T08:07:48.596",
+                    chargingEndTime: "2024-06-14T08:09:29.594",
+                    endReason: "EVDisconnected",
+                    endTime: "2024-06-14T08:09:43.935",
+                    soc: 51,
+                    socStart: 51,
+                    socEnd: null,
+                    timeToFull: null,
+                    updateTime: "2024-06-14T08:09:43.935"
+                }
+            }
+        ]
+    },
+    {
+        maxPowerKw: 50,
+        currentPowerKw: 0,
+        currentPowerA: 0,
+        acDcPowerRatio: 0.87,
+        status: "Operative",
+        onlineStatus: "Online",
+        connectors: [
+            {
+                connectorId: "12",
+                type: "CCS",
+                status: "Available",
+                name: null,
+                maxPowerKw: 40,
+                maxPowerKwActual: 37.949,
+                latestTransaction: {
+                    stationId: null,
+                    transactionId: `2561d118-5733-4e2f-b066-cb4cb32a00ef-8`,
+                    connectorId: "12",
+                    connectorType: "CCS",
+                    status: "Ended",
+                    startReason: "RemoteStart",
+                    chargedEnergyKwh: 0.441,
+                    chargingEndReason: "Remote",
+                    startTime: "2024-06-14T08:07:48.596",
+                    chargingEndTime: "2024-06-14T08:09:29.594",
+                    endReason: "EVDisconnected",
+                    endTime: "2024-06-14T08:09:43.935",
+                    soc: 51,
+                    socStart: 51,
+                    socEnd: null,
+                    timeToFull: null,
+                    updateTime: "2024-06-14T08:09:43.935"
+                }
+            }
+        ]
+    },
+]
