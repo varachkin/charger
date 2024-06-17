@@ -4,6 +4,10 @@ import QRCode from "react-qr-code";
 
 export const InvoiceModal = () => {
     const { language } = useSelector(state => state.actionReducer)
+    const query = {
+        transactionID: 'transactionID',
+        language: language,
+    }
     return (
         <div>
             <h1 className="title">{LANGUAGES_CONFIG[language].MODAL_CONTENT.TITLE_INVOICE}</h1>
@@ -11,7 +15,7 @@ export const InvoiceModal = () => {
 
             <div className="qr-wrapper">
                 <QRCode
-                    value="https://www.npmjs.com/package/react-qr-code"
+                    value={`https://charger-form.vercel.app?${JSON.stringify(query)}`}
                     style={{ height: "auto", maxWidth: "100%", width: "100%", margin: '10vw' }}
                 />
 
