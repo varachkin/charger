@@ -26,7 +26,7 @@ export const ReciptModal = ({handleCloseModal}) => {
     }
 
     return (
-        <div>
+        <div className="modal-content-paragraph-wrapper">
             <h1 className="title">{LANGUAGES_CONFIG[language].MODAL_CONTENT.TITLE_EMAIL}</h1>
             <article className='modal-article'>
                 <span className='modal-article-title'>{LANGUAGES_CONFIG[language].MODAL_CONTENT.ARTICLE_EMAIL_BOLD}</span>

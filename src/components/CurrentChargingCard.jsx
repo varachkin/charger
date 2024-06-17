@@ -95,7 +95,7 @@ export const CurrentChargingCard = ({ station }) => {
         </Paper >
             { isOpenModal && <Modal handleCloseModal={handleCloseModal} finishView={modalContent === '_FINISH'} handleAction={handleReadyStation}>
                 {modalContent === '_RECIPT' ? (<ReciptModal handleCloseModal={handleCloseModal}/>) :
-                    modalContent === '_INVOICE' ? (<InvoiceModal />) :
+                    modalContent === '_INVOICE' ? (<InvoiceModal {...station}/>) :
                         modalContent === '_FINISH' ? (<FinishModal />) :
                             null
                 }

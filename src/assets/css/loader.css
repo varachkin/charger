@@ -1,4 +1,4 @@
-.charging {
+.Charging {
     height: 70%;
     aspect-ratio: 1/1;
     border-radius: 50%;
@@ -6,7 +6,7 @@
     animation: rotate 3s linear infinite;
 }
 
-.charging::before {
+.Charging::before {
     content: "";
     box-sizing: border-box;
     position: absolute;
@@ -17,7 +17,7 @@
     /* animation: prixClipFix 2s linear infinite ; */
 }
 
-.charging::after {
+.Charging::after {
     content: "";
     box-sizing: border-box;
     position: absolute;

@@ -225,7 +225,7 @@ export const STATIONS = [
             {
                 connectorId: "12",
                 type: "CCS",
-                status: "Available",    //   Available | Occupied | Unknown
+                status: "Available",    //   Available | Charging | Faulted | Occupied | Reserved | Unavailable | Unknown
                 name: null,
                 maxPowerKw: 40,
                 maxPowerKwActual: 37.949,
@@ -234,7 +234,7 @@ export const STATIONS = [
                     transactionId: `2561d118-5733-4e2f-b066-cb4cb32a00ef-1`,
                     connectorId: "12",
                     connectorType: "CCS",
-                    status: "Alarm",    //  "Alarm" | "AuthorizedNotPluggedIn" | "Charging" | "Ended" | "InsulationTest" | "PluggedInIdle" | "Unknown"
+                    status: "Charging",    //  "Alarm" | "AuthorizedNotPluggedIn" | "Charging" | "Ended" | "InsulationTest" | "PluggedInIdle" | "Unknown"
                     startReason: "RemoteStart",
                     chargedEnergyKwh: 0.441,
                     chargingEndReason: "Remote",
@@ -248,7 +248,34 @@ export const STATIONS = [
                     timeToFull: null,
                     updateTime: "2024-06-14T08:09:43.935"
                 }
-            }
+            },
+            {
+                connectorId: "11",
+                type: "CHAdeMO",
+                status: "Available",    
+                name: null,
+                maxPowerKw: 40,
+                maxPowerKwActual: 37.949,
+                latestTransaction: {
+                    stationId: null,
+                    transactionId: null,
+                    connectorId: null,
+                    connectorType: null,
+                    status: null, 
+                    startReason: null,
+                    chargedEnergyKwh: null,
+                    chargingEndReason: null,
+                    startTime: null,
+                    chargingEndTime: null,
+                    endReason: null,
+                    endTime: null,
+                    soc: null,
+                    socStart: null,
+                    socEnd: null,
+                    timeToFull: null,
+                    updateTime: null
+                }
+            },
         ]
     },
     {
@@ -436,44 +463,7 @@ export const STATIONS = [
                     socStart: 51,
                     socEnd: null,
                     timeToFull: null,
-                    updateTime: "2024-06-14T08:09:43.935"
-                }
-            }
-        ]
-    },
-    {
-        id: 7,
-        maxPowerKw: 50,
-        currentPowerKw: 0,
-        currentPowerA: 0,
-        acDcPowerRatio: 0.87,
-        status: "Operative",
-        onlineStatus: "Online",
-        connectors: [
-            {
-                connectorId: "12",
-                type: "CCS",
-                status: "Available",
-                name: null,
-                maxPowerKw: 40,
-                maxPowerKwActual: 37.949,
-                latestTransaction: {
-                    stationId: null,
-                    transactionId: `2561d118-5733-4e2f-b066-cb4cb32a00ef-7`,
-                    connectorId: "12",
-                    connectorType: "CCS",
-                    status: "Ended",
-                    startReason: "RemoteStart",
-                    chargedEnergyKwh: 0.441,
-                    chargingEndReason: "Remote",
-                    startTime: "2024-06-14T08:07:48.596",
-                    chargingEndTime: "2024-06-14T08:09:29.594",
-                    endReason: "EVDisconnected",
-                    endTime: "2024-06-14T08:09:43.935",
-                    soc: 51,
-                    socStart: 51,
-                    socEnd: null,
-                    timeToFull: null,
+                    updatOccupiedFull: null,
                     updateTime: "2024-06-14T08:09:43.935"
                 }
             }

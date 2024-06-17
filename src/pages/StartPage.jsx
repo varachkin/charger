@@ -3,12 +3,12 @@ import { useNavigate } from "react-router-dom"
 import { LANGUAGES_CONFIG } from "../locales";
 import { Footer } from "../components/Footer";
 import { Grid } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ChargingStationCard } from "../components/ChargingStationCard";
 import { InfoStationCard } from "../components/InfoStationCard";
 import { v4 as uuidv4 } from 'uuid';
 import { ButtonCustom } from "../components/ButtonCustom";
-import { STATIONS } from "../constants";
+import { getAvailableStations, getProcessingStations } from "../utils";
 
 
 export const StartPage = () => {
@@ -21,6 +21,13 @@ export const StartPage = () => {
         navigate('/connector-type')
     }
 
+    useEffect(() => {
+        if(!getProcessingStations(getAvailableStations(stations)).length){
+            setIsEmptyStation(true)
+        }
+    }, [])
+    console.log('available', getAvailableStations(stations))
+    console.log('processing', getProcessingStations(getAvailableStations(stations)))
     return (
         <>
             <div className="page">
@@ -43,14 +50,15 @@ export const StartPage = () => {
                             <div className="stations-list">
                                 <Grid container rowSpacing={3} columnSpacing={3} justifyContent='center'
                                     sx={{ padding: '1rem' }}>
-                                    {STATIONS
-                                        .filter(station => station.status !== 'Unavailable' && station.onlineStatus !== 'Offline')
-                                        .map((item, index, arr) => (
-                                            <Grid item key={index} flexGrow={1} minWidth={arr.length === 1 ? '100%' : '50%'}
-                                                justifyContent='center'>
-                                                <ChargingStationCard item={item} />
-                                            </Grid>
-                                        ))}
+                                    {getProcessingStations(getAvailableStations(stations))
+                                        .map((item, index, arr) => {
+                                            return (
+                                                <Grid item key={index} flexGrow={1} minWidth={arr.length === 1 ? '100%' : '50%'}
+                                                    justifyContent='center'>
+                                                    <ChargingStationCard id={item.id} status={item.connectors.find(connector => connector.status !== null)?.latestTransaction.status}/>
+                                                </Grid>
+                                            )
+                                        })}
                                     <>
                                         <Grid item key={uuidv4()} minWidth={'50%'}>
                                             <InfoStationCard />

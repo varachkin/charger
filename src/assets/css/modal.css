@@ -88,6 +88,11 @@
     width: 100%;
     padding: 3vw;
 }
+.modal-content-paragraph-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 3vw;
+}
 
 .modal-content-footer{
     padding: 5vw;

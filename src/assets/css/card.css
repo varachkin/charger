@@ -51,19 +51,19 @@
     background-image: url(/src/assets/img/plug.webp);
 }
 
-.compleated {
+.Ended {
     background-image: url(/src/assets/img/car.webp);
 }
 
-.not_available {
+.Unknown {
     background-image: url(/src/assets/img/error.webp);
     filter: grayscale(95%);
 }
 
-.error {
+.Alarm {
     background-image: url(/src/assets/img/error.webp);
 }
 
-.success {
+.AuthorizedNotPluggedIn {
     background-image: url(/src/assets/img/success.webp);
 }

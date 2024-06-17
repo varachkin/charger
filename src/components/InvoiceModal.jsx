@@ -2,7 +2,7 @@ import { useSelector } from "react-redux"
 import { LANGUAGES_CONFIG } from "../locales"
 import QRCode from "react-qr-code";
 
-export const InvoiceModal = () => {
+export const InvoiceModal = ({transactionId}) => {
     const { language } = useSelector(state => state.actionReducer)
     const query = {
         transactionID: 'transactionID',

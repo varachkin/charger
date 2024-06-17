@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { chargerTypes, stations } from "../../constants";
+import { STATIONS, chargerTypes } from "../../constants";
 
 const initialState = {
-    stations: [...stations],
+    stations: [...STATIONS],
     chargerTypes: [...chargerTypes],
 };
 

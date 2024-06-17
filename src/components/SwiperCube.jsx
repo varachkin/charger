@@ -29,7 +29,7 @@ export default function SwiperCube({ stations = [], handleOpenModal, autoplay, h
     } : false;
 
     const chunkedArray = chunkArray(stations, 3);
-console.log(swiperRef)
+    console.log(swiperRef)
     return (
         <>
             <Swiper
@@ -60,16 +60,26 @@ console.log(swiperRef)
                             className={`${isSingle ? 'single' : ''}${isDouble ? 'double' : ''}`}
                         >
                             {i === 0 ? (<>
-                                   
-                                    {slide.map((station, index, array) => {
-                                        return <ChargingStationCard key={uuidv4()} item={station} handleGoToPreparingCharge={handleGoToPreparingCharge}/>
-                                    })}
-                                     < NextSlideCard />
+
+                                {slide.map((item, index, array) => {
+                                    return <ChargingStationCard
+                                        key={uuidv4()}
+                                        id={item.id}
+                                        status={item.connectors.find(connector => connector.status !== null)?.latestTransaction.status}
+                                        handleGoToPreparingCharge={handleGoToPreparingCharge}
+                                    />
+                                })}
+                                < NextSlideCard />
                             </>) : (
                                 <>
                                     < NextSlideCard />
-                                    {slide.map((station, index, array) => {
-                                        return <ChargingStationCard key={uuidv4()} item={station} handleGoToPreparingCharge={handleGoToPreparingCharge}/>
+                                    {slide.map((item, index, array) => {
+                                        return <ChargingStationCard
+                                            key={uuidv4()}
+                                            id={item.id}
+                                            status={item.connectors.find(connector => connector.status !== null)?.latestTransaction.status}
+                                            handleGoToPreparingCharge={handleGoToPreparingCharge}
+                                        />
                                     })
                                     }
                                 </>

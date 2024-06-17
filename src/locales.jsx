@@ -93,6 +93,7 @@ export const LANGUAGES_CONFIG = {
     en: {
         START_PAGE: {
             TITLE: 'Tap to start or connect the plug to your vehicle',
+            TITLE_EMPTY: 'Tap to start or plug in the vehicle',
             TITLE_BUSY: 'Currently in progress...',
             CARD_READY: 'Charging complete. Unplug the cable',
             CARD_CHARGING: 'Charging ...',
