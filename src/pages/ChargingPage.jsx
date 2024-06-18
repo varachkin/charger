@@ -10,7 +10,8 @@ export const ChargingPage = () => {
     const { stations } = useSelector(state => state.dataReducer)
     const navigate = useNavigate();
     const location = useLocation()
-    const station = stations.find(item => item.id === location.state)
+    const station = stations.find(item => item.id === location.state.id)
+
     const handleBack = () => {
         navigate(-1)
     }

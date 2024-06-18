@@ -3,27 +3,29 @@ import { useSelector } from 'react-redux';
 import { Loader } from './Loader';
 import { LANGUAGES_CONFIG } from '../locales';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-export const ChargingStationCard = ({ id, status,  handleGoToPreparingCharge=()=>{} }) => {
+export const ChargingStationCard = ({ id, status, handleRedirect }) => {
+    const navigate = useNavigate()
     const [isError, setIsError] = useState(false)
     const [isAvailable, setIsAvailable] = useState(true)
-    
+
     useEffect(() => {
-        status === 'Alarm' && setIsError(true)
-        status !== 'Unknown' && setIsAvailable(false)
+        status === 'Faulted' && setIsError(true)
+        status !== 'Unavailable' && setIsAvailable(false)
     })
     const { language } = useSelector(state => state.actionReducer)
 
     const subtitles = {
-        Ended: LANGUAGES_CONFIG[language].START_PAGE.CARD_READY,
+        Reserved: LANGUAGES_CONFIG[language].START_PAGE.CARD_READY,
         Charging: LANGUAGES_CONFIG[language].START_PAGE.CARD_CHARGING,
-        AuthorizedNotPluggedIn: LANGUAGES_CONFIG[language].START_PAGE.CARD_SUCCESS,
-        Unknown: LANGUAGES_CONFIG[language].START_PAGE.CARD_NOT_AVAILABLE,
-        Alarm: LANGUAGES_CONFIG[language].START_PAGE.CARD_ERROR
+        Available: LANGUAGES_CONFIG[language].START_PAGE.CARD_SUCCESS,
+        Unavailable: LANGUAGES_CONFIG[language].START_PAGE.CARD_NOT_AVAILABLE,
+        Faulted: LANGUAGES_CONFIG[language].START_PAGE.CARD_ERROR
     }
 
     return (
-        <div onClick={()=> handleGoToPreparingCharge(id)}>
+        <div onClick={()=> handleRedirect(id)}>
             <Paper
                 sx={{
                     height: '30vh',

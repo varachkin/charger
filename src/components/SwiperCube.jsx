@@ -65,8 +65,8 @@ export default function SwiperCube({ stations = [], handleOpenModal, autoplay, h
                                     return <ChargingStationCard
                                         key={uuidv4()}
                                         id={item.id}
-                                        status={item.connectors.find(connector => connector.status !== null)?.latestTransaction.status}
-                                        handleGoToPreparingCharge={handleGoToPreparingCharge}
+                                        status={item.connectors.find(connector => connector.status !== null)?.status}
+                                        handleRedirect={handleGoToPreparingCharge}
                                     />
                                 })}
                                 < NextSlideCard />
@@ -77,8 +77,8 @@ export default function SwiperCube({ stations = [], handleOpenModal, autoplay, h
                                         return <ChargingStationCard
                                             key={uuidv4()}
                                             id={item.id}
-                                            status={item.connectors.find(connector => connector.status !== null)?.latestTransaction.status}
-                                            handleGoToPreparingCharge={handleGoToPreparingCharge}
+                                            status={item.connectors.find(connector => connector.status !== null).status}
+                                            handleRedirect={handleGoToPreparingCharge}
                                         />
                                     })
                                     }

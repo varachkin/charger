@@ -1,3 +1,5 @@
+export const CHARGER_TYPES = ['CCS', 'CHAdeMO'];
+
 export const LANGUAGES_CONFIG = {
     pl: {
         START_PAGE: {
@@ -11,6 +13,10 @@ export const LANGUAGES_CONFIG = {
             CARD_INFO_TITLE: 'Rozpocznij ładowanie',
             CARD_INFO_SUBTITLE: 'lub podłącz wtyczkę do pojazdu',
             REST_CARD_TITLE: 'Pozostałe...',
+        },
+        INITIALIZATION_PAGE: {
+            TITLE_PAGE: 'Wykryto podłączenie',
+
         },
         CARD: {
             STATION: 'Stanowisko',
@@ -61,6 +67,8 @@ export const LANGUAGES_CONFIG = {
             SUBMIT: 'Potwierdź',
             YES: 'Tak',
             NO: 'Nie',
+            CONFIRM: 'Potwierdzam',
+            MANUAL_CHOOSE: 'Wybiorę ręcznie',
         },
         FORM: {
             FORM_TITLE: 'Wymagane:',
@@ -153,6 +161,8 @@ export const LANGUAGES_CONFIG = {
             SUBMIT: 'Submit',
             YES: 'Yes',
             NO: 'No',
+            CONFIRM: 'Confirm',
+            MANUAL_CHOOSE: 'Choose manually',
         },
         FORM: {
             FORM_TITLE: 'Required:',

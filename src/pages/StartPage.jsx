@@ -9,6 +9,7 @@ import { InfoStationCard } from "../components/InfoStationCard";
 import { v4 as uuidv4 } from 'uuid';
 import { ButtonCustom } from "../components/ButtonCustom";
 import { getAvailableStations, getProcessingStations } from "../utils";
+import { LinkCustom } from "../components/LinkCustom";
 
 
 export const StartPage = () => {
@@ -19,6 +20,10 @@ export const StartPage = () => {
 
     const handleGoNext = () => {
         navigate('/connector-type')
+    }
+
+    const handleGoToCurrentSession = (id)=> {
+        navigate('/charging', {state: {id: id}})
     }
 
     useEffect(() => {
@@ -55,7 +60,7 @@ export const StartPage = () => {
                                             return (
                                                 <Grid item key={index} flexGrow={1} minWidth={arr.length === 1 ? '100%' : '50%'}
                                                     justifyContent='center'>
-                                                    <ChargingStationCard id={item.id} status={item.connectors.find(connector => connector.status !== null)?.latestTransaction.status}/>
+                                                    <ChargingStationCard id={item.id} status={item.connectors.find(connector => connector.status !== null)?.status} handleRedirect={handleGoToCurrentSession}/>
                                                 </Grid>
                                             )
                                         })}
@@ -70,6 +75,7 @@ export const StartPage = () => {
                 </section>
             </div>
             <Footer>
+                <LinkCustom onClick={()=> navigate('/initialization')}>???? simulate connect ????</LinkCustom>
                 <ButtonCustom
                     onClick={handleGoNext}
                 >
