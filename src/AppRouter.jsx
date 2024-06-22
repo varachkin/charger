@@ -11,6 +11,7 @@ import { ChargingPage } from "./pages/ChargingPage";
 import { RatingPage } from "./pages/RatingPage";
 import { ThanksPage } from "./pages/ThanksPage";
 import { InitializationConnectionPage } from "./pages/InitializationConnectionPage";
+import { MakeSurePage } from "./pages/MakeSurePage";
 
 export default function AppRouter(props) {
     return (
@@ -19,6 +20,7 @@ export default function AppRouter(props) {
                 <Routes>
                     <Route path="/" element={<StartPage {...props} error={<ErrorBoundary />} />} />
                     <Route path="/initialization" element={<InitializationConnectionPage {...props} error={<ErrorBoundary />} />} />
+                    <Route path="/make-sure" element={<MakeSurePage {...props} error={<ErrorBoundary />} />} />
                     <Route path="/connector-type" element={<ConnectorTypePage {...props} error={<ErrorBoundary />} />} />
                     <Route path="/choose-station" element={<ChooseStationPage {...props} error={<ErrorBoundary />} />} />
                     <Route path="/preparing" element={<PreparingForChargingPage {...props} error={<ErrorBoundary />} />} />

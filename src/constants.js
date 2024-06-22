@@ -290,7 +290,7 @@ export const STATIONS = [
             {
                 connectorId: "12",
                 type: "CCS",
-                status: "Charging",
+                status: "Occupied",
                 name: null,
                 maxPowerKw: 40,
                 maxPowerKwActual: 37.949,

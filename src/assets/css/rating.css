@@ -1,8 +1,7 @@
 .rating-buttons-wrapper{
     display: flex;
     width: 100%;
-    height: 100%;
     justify-content: center;
     flex-direction: column;
-    gap: 3vw;
+    gap: 5vw;
 }

@@ -16,7 +16,15 @@ export const LANGUAGES_CONFIG = {
         },
         INITIALIZATION_PAGE: {
             TITLE_PAGE: 'Wykryto podłączenie',
+            SUBTITLE_PAGE: 'Inicjalizacja',
+            PARAGRAPH_PAGE_1: 'Upłynęło ',
+            PARAGRAPH_PAGE_2: ' sek.',
+            PARAGRAPH_PAGE_3: 'Potwierdź wybór stacji ładowania aby kontynuować.',
 
+        },
+        MAKE_SURE_PAGE: {
+            TITLE_PAGE: 'Upewnij się, że ...',
+            SUBTITLE_PAGE: 'wtyczka jest wypięta aby kontynuować.',
         },
         CARD: {
             STATION: 'Stanowisko',
@@ -111,6 +119,17 @@ export const LANGUAGES_CONFIG = {
             CARD_INFO_TITLE: 'Start charging',
             CARD_INFO_SUBTITLE: 'or plug in the vehicle',
             REST_CARD_TITLE: 'Others...',
+        },
+        INITIALIZATION_PAGE: {
+            TITLE_PAGE: 'Connection detected',
+            SUBTITLE_PAGE: 'Initialization',
+            PARAGRAPH_PAGE_1: 'Elapsed ',
+            PARAGRAPH_PAGE_2: ' seconds.',
+            PARAGRAPH_PAGE_3: 'Confirm the charging station selection to continue.',
+        },
+        MAKE_SURE_PAGE: {
+            TITLE_PAGE: 'Make sure that...',
+            SUBTITLE_PAGE: 'the plug is unplugged to continue.',
         },
         CARD: {
             STATION: 'Position',

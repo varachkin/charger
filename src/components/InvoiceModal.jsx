@@ -16,7 +16,7 @@ export const InvoiceModal = ({transactionId}) => {
             <div className="qr-wrapper">
                 <QRCode
                     value={`https://charger-form.vercel.app?${JSON.stringify(query)}`}
-                    style={{ height: "auto", maxWidth: "100%", width: "100%", margin: '10vw' }}
+                    style={{ height: "auto", maxWidth: "100%", width: "100%", margin: '10vw', padding: '3vw', backgroundColor: '#ffffff' }}
                 />
 
             </div>

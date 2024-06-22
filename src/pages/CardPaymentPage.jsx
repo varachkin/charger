@@ -12,8 +12,8 @@ export const CardPaymentPage = () => {
     const handleBack = () => {
         navigate(-1)
     }
-    const handleSuccess = () => {
-        navigate('/charging', {state: location.state})
+    const handleSuccess = (id) => {
+        navigate('/charging', {state: {id: id}})
     }
 
     const handleError = () => {
@@ -32,7 +32,7 @@ console.log(location.state)
 
             <Footer>
                 <LinkCustom onClick={handleBack}>{LANGUAGES_CONFIG[language].BUTTONS.BACK}</LinkCustom>
-                <div style={{ display: 'flex' }}><LinkCustom onClick={handleSuccess}>Success</LinkCustom><LinkCustom onClick={handleError}>Error</LinkCustom></div>
+                <div style={{ display: 'flex' }}><LinkCustom onClick={() => handleSuccess(location.state)}>Success</LinkCustom><LinkCustom onClick={handleError}>Error</LinkCustom></div>
             </Footer>
         </>
 

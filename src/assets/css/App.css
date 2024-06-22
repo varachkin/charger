@@ -58,6 +58,13 @@ section {
     position: relative;
 }
 
+.main > div{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .page {
     flex: 1;
     display: flex;
@@ -113,12 +120,12 @@ h4.subtitle {
 .buttons-container{
     display: flex;
     flex-direction: column;
-    gap: 2vw;
+    gap: 5vw;
     width: 100%;
 }
 button.button {
     font-size: 4vw;
-    padding: 1.25vw;
+    padding: 1.75vw;
     width: 95%;
     border-radius: 1.5vw;
     background-color: #000000;
@@ -130,7 +137,7 @@ button.button {
 
 button.button.outlined {
     font-size: 4vw;
-    padding: 1.25vw;
+    padding: 1.75vw;
     width: 95%;
     border-radius: 1.5vw;
     background-color: #eeeeee;
@@ -165,12 +172,15 @@ button.button.outlined:active, button.button.outlined:focus, button.button.outli
     flex-direction: column;
     flex: 1;
     overflow: hidden;
+    width: 100%;
 }
 
 .article {
-    font-size: 2.5vw;
+    font-size: 3vw;
     color: #000000;
     padding: 3vw;
+    font-weight: 400;
+    width: 100%;
 }
 
 .article-title {
