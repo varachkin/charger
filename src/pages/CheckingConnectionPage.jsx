@@ -5,7 +5,7 @@ import { ButtonCustom } from "../components/ButtonCustom"
 import { LinkCustom } from "../components/LinkCustom"
 import { useNavigate } from "react-router-dom"
 
-export const MakeSurePage = () => {
+export const CheckingConnectionPage = () => {
     const {language} = useSelector(state => state.actionReducer)
     const navigate = useNavigate();
 

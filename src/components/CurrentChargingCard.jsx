@@ -7,7 +7,6 @@ import { LinkCustom } from "./LinkCustom"
 import { useEffect, useState } from "react"
 import { Modal } from "./Modal"
 import { InvoiceModal } from "./InvoiceModal"
-// import { ReciptModal } from "./ReciptModal"
 import { FinishModal } from "./FinishModal"
 import { stationToCharging, stationToCompleate } from "../features/data/dataSlice"
 import { ReciptModal } from "./ReciptModal"
@@ -20,7 +19,6 @@ export const CurrentChargingCard = ({ station }) => {
     const { language } = useSelector(state => state.actionReducer);
     const [isOpenModal, setIsOpenModal] = useState(false)
     const [modalContent, setModalContent] = useState(null)
-    const [isWorking, setIsWorking] = useState(true)
     const [counter, setCounter] = useState(1);
     const [intervalId, setIntervalId] = useState()
 

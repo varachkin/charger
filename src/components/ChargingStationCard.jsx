@@ -1,6 +1,5 @@
 import Paper from '@mui/material/Paper';
 import { useSelector } from 'react-redux';
-import { Loader } from './Loader';
 import { LANGUAGES_CONFIG } from '../locales';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';

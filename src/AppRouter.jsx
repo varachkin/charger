@@ -4,14 +4,14 @@ import { Wrapper } from "./pages/Wrapper";
 import { ErrorBoundary } from "./ErrorBoundary";
 import { Page_2 } from "./pages/Page_2";
 import { ConnectorTypePage } from "./pages/ConnectorTypePage";
-import { ChooseStationPage } from "./pages/ChooseStationPage";
-import { PreparingForChargingPage } from "./pages/PreparingForChargingPage";
-import { CardPaymentPage } from "./pages/CardPaymentPage";
+import { SwiperPage } from "./pages/SwiperPage";
+import { ConfirmationRegulationsPage } from "./pages/ConfirmationRegulationsPage";
+import { PaymentPage } from "./pages/PaymentPage";
 import { ChargingPage } from "./pages/ChargingPage";
 import { RatingPage } from "./pages/RatingPage";
 import { ThanksPage } from "./pages/ThanksPage";
 import { InitializationConnectionPage } from "./pages/InitializationConnectionPage";
-import { MakeSurePage } from "./pages/MakeSurePage";
+import { CheckingConnectionPage } from "./pages/CheckingConnectionPage";
 
 export default function AppRouter(props) {
     return (
@@ -20,11 +20,11 @@ export default function AppRouter(props) {
                 <Routes>
                     <Route path="/" element={<StartPage {...props} error={<ErrorBoundary />} />} />
                     <Route path="/initialization" element={<InitializationConnectionPage {...props} error={<ErrorBoundary />} />} />
-                    <Route path="/make-sure" element={<MakeSurePage {...props} error={<ErrorBoundary />} />} />
+                    <Route path="/make-sure" element={<CheckingConnectionPage {...props} error={<ErrorBoundary />} />} />
                     <Route path="/connector-type" element={<ConnectorTypePage {...props} error={<ErrorBoundary />} />} />
-                    <Route path="/choose-station" element={<ChooseStationPage {...props} error={<ErrorBoundary />} />} />
-                    <Route path="/preparing" element={<PreparingForChargingPage {...props} error={<ErrorBoundary />} />} />
-                    <Route path="/card-payment" element={<CardPaymentPage {...props} error={<ErrorBoundary />} />} />
+                    <Route path="/choose-station" element={<SwiperPage {...props} error={<ErrorBoundary />} />} />
+                    <Route path="/preparing" element={<ConfirmationRegulationsPage {...props} error={<ErrorBoundary />} />} />
+                    <Route path="/card-payment" element={<PaymentPage {...props} error={<ErrorBoundary />} />} />
                     <Route path="/charging" element={<ChargingPage {...props} error={<ErrorBoundary />} />} />
                     <Route path="/raiting" element={<RatingPage {...props} error={<ErrorBoundary />} />} />
                     <Route path="/thanks" element={<ThanksPage {...props} error={<ErrorBoundary />} />} />

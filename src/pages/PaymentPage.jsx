@@ -5,7 +5,7 @@ import { LinkCustom } from "../components/LinkCustom";
 import { useSelector } from "react-redux";
 import { LANGUAGES_CONFIG } from "../locales";
 
-export const CardPaymentPage = () => {
+export const PaymentPage = () => {
     const navigate = useNavigate()
     const location = useLocation()
     const { language } = useSelector(state => state.actionReducer)

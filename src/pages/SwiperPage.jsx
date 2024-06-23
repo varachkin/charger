@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { Footer } from "../components/Footer";
 import { Link } from "@mui/material";
 
-export const ChooseStationPage = () => {
+export const SwiperPage = () => {
     const location = useLocation()
     const navigate = useNavigate()
     const { language } = useSelector(state => state.actionReducer)

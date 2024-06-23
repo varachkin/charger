@@ -1,8 +1,7 @@
 import {useSelector} from "react-redux";
 import {LANGUAGES_CONFIG} from "../locales";
-import {InputWithKeyboard} from "./InputWithKeyboard";
 
-export const Regulations = () => {
+export const RegulationsModal = () => {
     const {language} = useSelector(state => state.actionReducer)
     return (
         <>

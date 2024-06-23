@@ -11,10 +11,10 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import { useEffect, useState } from "react";
 import { Modal } from "../components/Modal";
-import { Regulations } from "../components/Regulations";
-import { Policy } from "../components/Policy";
+import { RegulationsModal } from "../components/RegulationsModal";
+import { Policy } from "../components/PolicyModal";
 
-export const PreparingForChargingPage = () => {
+export const ConfirmationRegulationsPage = () => {
     const [stationID, setStationID] = useState(null)
     const { language } = useSelector(state => state.actionReducer)
     const location = useLocation();
@@ -139,7 +139,7 @@ export const PreparingForChargingPage = () => {
                     {LANGUAGES_CONFIG[language].BUTTONS.BACK}
                 </LinkCustom>
             </Footer>
-            {isOpenModalRegulations && <Modal handleCloseModal={handleCloseModalRegulations}><Regulations /></Modal>}
+            {isOpenModalRegulations && <Modal handleCloseModal={handleCloseModalRegulations}><RegulationsModal /></Modal>}
             {isOpenModalPolicy && <Modal handleCloseModal={handleCloseModalPolicy}><Policy /></Modal>}
         </>
 

@@ -29,12 +29,14 @@
     padding: 2vw;
     font-size: 3vw;
 }
+
 .next-slide-card{
     flex: 1;
     display: flex;
     align-items: center;
     background-color: none !important;
 }
+
 .station-card-icon {
     height: 100%;
     aspect-ratio: 1/1;
