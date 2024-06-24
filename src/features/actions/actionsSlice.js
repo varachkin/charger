@@ -3,6 +3,7 @@ const initialState = {
     language: 'pl',
     language_list: ['pl', 'en'],
     serial: null,
+    stationID: 'CSvc-test-vc-org-12',
 }
 export const actionsSlice = createSlice({
     name: 'actions',

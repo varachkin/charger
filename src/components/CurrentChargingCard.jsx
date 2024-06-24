@@ -13,15 +13,16 @@ import { ReciptModal } from "./ReciptModal"
 import { useNavigate } from "react-router-dom"
 import { BATARY_SIZE, COST } from "../constants"
 
-export const CurrentChargingCard = ({ station }) => {
+export const CurrentChargingCard = ({ id }) => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const { language } = useSelector(state => state.actionReducer);
+    const { stations } = useSelector(state => state.dataReducer);
     const [isOpenModal, setIsOpenModal] = useState(false)
     const [modalContent, setModalContent] = useState(null)
     const [counter, setCounter] = useState(1);
     const [intervalId, setIntervalId] = useState()
-
+    const station = stations.find(item => item.id === id)
     const connector = station?.connectors.find(connector => connector.status === 'Occupied')
     console.log(connector)
 
@@ -63,8 +64,8 @@ export const CurrentChargingCard = ({ station }) => {
     }
 
     useEffect(() => {
-        dispatch(stationToCharging(station.id))
-    }, [station.id])
+        dispatch(stationToCharging(id))
+    }, [id])
 
     console.log('station', station)
     return (

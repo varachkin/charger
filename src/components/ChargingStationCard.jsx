@@ -23,8 +23,16 @@ export const ChargingStationCard = ({ id, status, handleRedirect }) => {
         Faulted: LANGUAGES_CONFIG[language].START_PAGE.CARD_ERROR
     }
 
+    const redirectConfig = {
+        Reserved: () => navigate('/charging', {state: id}),
+        Charging: () => navigate('/charging', {state: id}),
+        Available: () => navigate('/preparing', {state: id}),
+        Unavailable: ()=> {},
+        Faulted: LANGUAGES_CONFIG[language].START_PAGE.CARD_ERROR
+    }
+
     return (
-        <div onClick={()=> handleRedirect(id)}>
+        <div onClick={redirectConfig[status]}>
             <Paper
                 sx={{
                     height: '30vh',

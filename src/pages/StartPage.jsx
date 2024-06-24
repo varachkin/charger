@@ -10,11 +10,12 @@ import { v4 as uuidv4 } from 'uuid';
 import { ButtonCustom } from "../components/ButtonCustom";
 import { getAvailableStations, getProcessingStations } from "../utils";
 import { LinkCustom } from "../components/LinkCustom";
+import { getStations } from "../API";
 
 
 export const StartPage = () => {
     const [isEmptyStation, setIsEmptyStation] = useState(false)
-    const { language } = useSelector(state => state.actionReducer);
+    const { language, stationID } = useSelector(state => state.actionReducer);
     const { stations } = useSelector(state => state.dataReducer);
     const navigate = useNavigate()
 
@@ -27,6 +28,7 @@ export const StartPage = () => {
     }
 
     useEffect(() => {
+        getStations(stationID).then()
         if(!getProcessingStations(getAvailableStations(stations)).length){
             setIsEmptyStation(true)
         }
