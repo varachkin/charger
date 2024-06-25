@@ -1,7 +1,8 @@
 import axios from "axios";
 
 // const serverIP = "http://0.0.0.0:6006"; 
-const serverIP = "https://tardis.test.spaco.cloud/api/"
+// const serverIP = "https://tardis.test.spaco.cloud/api/"
+const serverIP = "http://ec2-3-143-131-213.us-east-2.compute.amazonaws.com:21001/api/v1"
 
 const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxODYwMDYxNSwianRpIjoiNjIwMGVlODUtM2Q3NC00YjFkLWI5NmQtNDMwY2ExMDhlNWZiIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IiIsIm5iZiI6MTcxODYwMDYxNSwiZXhwIjoxNzIwNDAwNjE1LCJhdWQiOiJhbmRyemVqQHZlbmRvcm9ib3RpY3MuY29tIiwiY2xpZW50X2lkIjoyNywic2NvcGUiOiJQQjAxIn0.H8rpavkyliArvQjuPGWdwyUhsJBLk4rXLoQ0knZVNoI';
 
@@ -34,13 +35,13 @@ export const postRequest = (serial) => {
 
 export const getStations = (id) => {
   return axios
-  .get(serverIP + `v1/stations/${id}`, { 
+  .get(serverIP + `/stations/?station_id=${id}`, { 
     headers: {
-      'Access-Control-Allow-Origin': 'Bearer ' + token,
-      'accept': '*/*',
+      authorization: 'Bearer ' + token,
     } 
   })
   .then(function (response) {
+    console.log(response)
     return response;
   })
   .catch(function (error) {

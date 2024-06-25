@@ -10,8 +10,8 @@ export const dataSlice = createSlice({
     name: 'data',
     initialState: () => initialState,
     reducers: {
-        setData: (state, actions) => {
-            // state.data = { ...actions.payload };
+        setStations: (state, actions) => {
+            state.stations = [ {id: 1, ...actions.payload}, ...STATIONS];
         },
         stationToCompleate: (state, actions) => {
             state.stations = state.stations.map(station => station.id === actions.payload ? ({...station, status: 'compleated'}) : {...station} )
@@ -22,5 +22,5 @@ export const dataSlice = createSlice({
     }
 })
 
-export const { setData, stationToCompleate, stationToCharging } = dataSlice.actions;
+export const { setData, stationToCompleate, stationToCharging, setStations } = dataSlice.actions;
 export default dataSlice.reducer;

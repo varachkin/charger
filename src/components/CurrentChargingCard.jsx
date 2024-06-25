@@ -13,18 +13,18 @@ import { ReciptModal } from "./ReciptModal"
 import { useNavigate } from "react-router-dom"
 import { BATARY_SIZE, COST } from "../constants"
 
-export const CurrentChargingCard = ({ id }) => {
+export const CurrentChargingCard = ({connector, id}) => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const { language } = useSelector(state => state.actionReducer);
-    const { stations } = useSelector(state => state.dataReducer);
     const [isOpenModal, setIsOpenModal] = useState(false)
     const [modalContent, setModalContent] = useState(null)
     const [counter, setCounter] = useState(1);
     const [intervalId, setIntervalId] = useState()
-    const station = stations.find(item => item.id === id)
-    const connector = station?.connectors.find(connector => connector.status === 'Occupied')
-    console.log(connector)
+    // const {connector} = location.state
+    
+    // const {latestTransaction} = connector
+    console.log(location.state)
 
     useEffect(() => {
         const id = setInterval(() => {
@@ -52,7 +52,7 @@ export const CurrentChargingCard = ({ id }) => {
     }
 
     const handleReadyStation = () => {
-        dispatch(stationToCompleate(station.id))
+        dispatch(stationToCompleate(id))
         setIsOpenModal(false);
         console.log(intervalId)
         clearInterval(intervalId)
@@ -67,7 +67,6 @@ export const CurrentChargingCard = ({ id }) => {
         dispatch(stationToCharging(id))
     }, [id])
 
-    console.log('station', station)
     return (
         <>
             <Paper
@@ -76,7 +75,7 @@ export const CurrentChargingCard = ({ id }) => {
             >
                 <div className="current-charging-card-header">
                     <div className="station-block">
-                        <div className='station-card-number'>{station?.id}</div>
+                        <div className='station-card-number'>{id}</div>
                         <div className='station-card-name'>{LANGUAGES_CONFIG[language].CARD.STATION}</div>
                     </div>
                     <div className={`icon-block ${connector?.type}`}>
@@ -85,7 +84,7 @@ export const CurrentChargingCard = ({ id }) => {
                     </div>
                 </div>
                 <div className="current-charging-card-body">
-                    {station.status === 'charging' ? <LoaderProgress full={5} counter={counter}/> : (
+                    {connector.status === 'charging' ? <LoaderProgress full={5} counter={counter}/> : (
                         <div className="station-card-icon-wrapper">
                             <div className={`station-card-icon Reserved`}></div>
                         </div>)}
@@ -113,14 +112,14 @@ export const CurrentChargingCard = ({ id }) => {
                     </Typography>
                 </div>
                 <div className="current-charging-card-footer">
-                    {station.status === 'charging' ?
+                    {connector.status === 'charging' ?
                         <ButtonCustom className='button' id='_FINISH' onClick={handleOpenModal}>{LANGUAGES_CONFIG[language].BUTTONS.FINISH_CHARGING}</ButtonCustom> :
                         <ButtonCustom className='button' onClick={handleCompleate}>{LANGUAGES_CONFIG[language].BUTTONS.COMPLEATE_CHARGING}</ButtonCustom>}
                 </div>
             </Paper >
             {isOpenModal && <Modal handleCloseModal={handleCloseModal} finishView={modalContent === '_FINISH'} handleAction={handleReadyStation}>
                 {modalContent === '_RECIPT' ? (<ReciptModal handleCloseModal={handleCloseModal} />) :
-                    modalContent === '_INVOICE' ? (<InvoiceModal {...station} />) :
+                    modalContent === '_INVOICE' ? (<InvoiceModal />) :
                         modalContent === '_FINISH' ? (<FinishModal />) :
                             null
                 }

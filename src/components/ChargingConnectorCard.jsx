@@ -2,9 +2,15 @@ import Paper from '@mui/material/Paper';
 import { useSelector } from 'react-redux';
 import { LANGUAGES_CONFIG } from '../locales';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export const ChargingConnectorCard = ({ charger }) => {
     const { language } = useSelector(state => state.actionReducer)
+    const navigate = useNavigate()
+
+    const handleNavigateToChooseStation = (type) => {
+        navigate('/choose-station', { state: {connectorType: type}})
+    }
 
     const content = {
         eco: LANGUAGES_CONFIG[language].CONNECTOR_TYPE_PAGE.ECO_TITLE,
@@ -21,6 +27,7 @@ export const ChargingConnectorCard = ({ charger }) => {
             position: 'relative',
             zIndex: 2,
         }}
+            onClick={() => handleNavigateToChooseStation(charger.type)}
             elevation={6}
         >
             <div className={`connector-type-card-header ${charger.type}`}>{content[charger.header]}</div>
@@ -29,10 +36,10 @@ export const ChargingConnectorCard = ({ charger }) => {
                 <div className='connector-type-card-ico-block'>
                     <div className='connector-type-card-ico'></div>
                     <div className='connector-type-card-ico-description'>
-                      {LANGUAGES_CONFIG[language].CONNECTOR_TYPE_PAGE.TILL} {charger.maxValue} kW {charger.ac_dc}
+                        {LANGUAGES_CONFIG[language].CONNECTOR_TYPE_PAGE.TILL} {charger.maxPowerKw} kW {charger.ac_dc}
                     </div>
                 </div>
-                <div className='connector-type-card-cost'>{charger.cost} {charger.currency} / kWh</div>  
+                <div className='connector-type-card-cost'>{charger.cost} {charger.currency} / kWh</div>
             </div>
 
         </Paper>

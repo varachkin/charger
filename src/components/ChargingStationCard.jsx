@@ -4,14 +4,14 @@ import { LANGUAGES_CONFIG } from '../locales';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export const ChargingStationCard = ({ id, status, handleRedirect }) => {
+export const ChargingStationCard = ({ id, connector }) => {
     const navigate = useNavigate()
     const [isError, setIsError] = useState(false)
     const [isAvailable, setIsAvailable] = useState(true)
-
+    console.log(connector)
     useEffect(() => {
-        status === 'Faulted' && setIsError(true)
-        status !== 'Unavailable' && setIsAvailable(false)
+        connector.status === 'Faulted' && setIsError(true)
+        connector.status !== 'Unavailable' && setIsAvailable(false)
     })
     const { language } = useSelector(state => state.actionReducer)
 
@@ -24,15 +24,15 @@ export const ChargingStationCard = ({ id, status, handleRedirect }) => {
     }
 
     const redirectConfig = {
-        Reserved: () => navigate('/charging', {state: id}),
-        Charging: () => navigate('/charging', {state: id}),
-        Available: () => navigate('/preparing', {state: id}),
+        Reserved: () => navigate('/charging', {state: {connector, id}}),
+        Charging: () => navigate('/charging', {state: {connector, id}}),
+        Available: () => navigate('/preparing', {state: {connector, id}}),
         Unavailable: ()=> {},
-        Faulted: LANGUAGES_CONFIG[language].START_PAGE.CARD_ERROR
+        Faulted: ()=> {},
     }
-
+    console.log(connector)
     return (
-        <div onClick={redirectConfig[status]}>
+        <div onClick={redirectConfig[connector.status]}>
             <Paper
                 sx={{
                     height: '30vh',
@@ -46,12 +46,12 @@ export const ChargingStationCard = ({ id, status, handleRedirect }) => {
                 <div className='station-card-number'>{id}</div>
                 <div className='station-card-name'>{LANGUAGES_CONFIG[language].CARD.STATION}</div>
                 <div className='station-card-icon-wrapper'>
-                    <div className={`station-card-icon ${status}`}></div>
+                    <div className={`station-card-icon ${connector.status}`}></div>
                 </div>
                 <div
                     className='station-card-title'
                 >
-                    {subtitles[status]}
+                    {subtitles[connector.status]}
                 </div>
 
             </Paper>

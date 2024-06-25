@@ -5,7 +5,12 @@ export const getAvailableStations = (stations = []) => {
 export const getProcessingStations = (stations) => {
     return stations.filter(station => 
         station.connectors.some(connector => 
-            connector.status === 'Charging' || connector.status === 'Reserved'
+            connector.status === 'Occupied'
         )
     );
+}
+
+
+export const filterStationsByConnectorType = (array, type) => {
+    return array.filter(station => station.connectors.find(connector => connector.type === type))
 }

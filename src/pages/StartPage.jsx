@@ -1,5 +1,5 @@
-import { useSelector } from "react-redux"
-import { useNavigate } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { LANGUAGES_CONFIG } from "../locales";
 import { Footer } from "../components/Footer";
 import { Grid } from "@mui/material";
@@ -11,43 +11,54 @@ import { ButtonCustom } from "../components/ButtonCustom";
 import { getAvailableStations, getProcessingStations } from "../utils";
 import { LinkCustom } from "../components/LinkCustom";
 import { getStations } from "../API";
-
+import { setStations } from "../features/data/dataSlice";
 
 export const StartPage = () => {
-    const [isEmptyStation, setIsEmptyStation] = useState(false)
     const { language, stationID } = useSelector(state => state.actionReducer);
     const { stations } = useSelector(state => state.dataReducer);
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const dispatch = useDispatch()
 
     const handleGoNext = () => {
-        navigate('/connector-type')
-    }
-
-    const handleGoToCurrentSession = (id)=> {
-        navigate('/charging', {state: {id: id}})
-    }
+        navigate('/connector-type');
+    };
 
     useEffect(() => {
-        getStations(stationID).then()
-        if(!getProcessingStations(getAvailableStations(stations)).length){
-            setIsEmptyStation(true)
-        }
-    }, [])
-    console.log('available', getAvailableStations(stations))
-    console.log('processing', getProcessingStations(getAvailableStations(stations)))
+        const fetchStations = () => {
+            getStations(stationID).then(response => {
+                if(response.status === 200){
+                    dispatch(setStations(response.data))
+                }
+            });
+           
+        };
+
+        // Initial fetch
+        fetchStations();
+
+        // Set interval to fetch stations every 2 seconds
+        const intervalId = setInterval(fetchStations, 1000);
+
+        // Clear interval on component unmount
+        return () => clearInterval(intervalId);
+    }, []);
+
+   const processingStations = getProcessingStations(getAvailableStations(stations))
+
+    console.log('available', getAvailableStations(stations));
+    console.log('processing', getProcessingStations(getAvailableStations(stations)));
+
     return (
         <>
             <div className="page">
-                <h1
-                    className="title"
-                >
-                    {isEmptyStation ?
+                <h1 className="title">
+                    {!processingStations.length ?
                         LANGUAGES_CONFIG[language].START_PAGE.TITLE_EMPTY :
                         LANGUAGES_CONFIG[language].START_PAGE.TITLE_BUSY
                     }
                 </h1>
                 <section className="section">
-                    {isEmptyStation ?
+                    {!processingStations.length ?
                         (
                             <div className="advertising-section">
                                 REKLAMA
@@ -62,9 +73,9 @@ export const StartPage = () => {
                                             return (
                                                 <Grid item key={index} flexGrow={1} minWidth={arr.length === 1 ? '100%' : '50%'}
                                                     justifyContent='center'>
-                                                    <ChargingStationCard id={item.id} status={item.connectors.find(connector => connector.status !== null)?.status} handleRedirect={handleGoToCurrentSession}/>
+                                                    <ChargingStationCard id={item.id} connector={item.connectors.find(connector => connector.status !== null)} />
                                                 </Grid>
-                                            )
+                                            );
                                         })}
                                     <>
                                         <Grid item key={uuidv4()} minWidth={'50%'}>
@@ -77,14 +88,11 @@ export const StartPage = () => {
                 </section>
             </div>
             <Footer>
-                <LinkCustom onClick={()=> navigate('/initialization')}>???? simulate connect ????</LinkCustom>
-                <ButtonCustom
-                    onClick={handleGoNext}
-                >
+                <LinkCustom onClick={() => navigate('/initialization')}>???? simulate connect ????</LinkCustom>
+                <ButtonCustom onClick={handleGoNext}>
                     {LANGUAGES_CONFIG[language].BUTTONS.GET_STARTED}
                 </ButtonCustom>
             </Footer>
         </>
-
-    )
-}
+    );
+};

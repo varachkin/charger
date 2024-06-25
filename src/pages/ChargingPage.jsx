@@ -10,7 +10,7 @@ export const ChargingPage = () => {
     const { stations } = useSelector(state => state.dataReducer)
     const navigate = useNavigate();
     const location = useLocation()
-    const station = stations.find(item => item.id === location.state.id)
+    const {connector, id} = location.state
 
     const handleBack = () => {
         navigate(-1)
@@ -18,12 +18,11 @@ export const ChargingPage = () => {
 
     
 
-    console.log(station)
     return (
         <>
             <h1 className="title">{LANGUAGES_CONFIG[language].CHARGING_PAGE.TITLE_PAGE}</h1>
             <div className="current-charging-card-wrapper">
-                <CurrentChargingCard station={station}/>
+                <CurrentChargingCard connector={connector} id={id}/>
             </div>
 
 

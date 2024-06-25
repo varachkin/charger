@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 import { ChargingStationCard } from './ChargingStationCard';
 import { NextSlideCard } from './NextSlideCard';
 
-export default function SwiperCube({ stations = [], handleOpenModal, autoplay, handleGoToPreparingCharge }) {
+export default function SwiperCube({ stations = [], handleOpenModal, autoplay, connectorType }) {
     const [view, setView] = useState(2)
     const [activeSlide, setActiveSlide] = useState()
     const { devMode } = useSelector(state => state.actionReducer)
@@ -29,7 +29,7 @@ export default function SwiperCube({ stations = [], handleOpenModal, autoplay, h
     } : false;
 
     const chunkedArray = chunkArray(stations, 3);
-    console.log(swiperRef)
+    console.log(stations)
     return (
         <>
             <Swiper
@@ -65,8 +65,8 @@ export default function SwiperCube({ stations = [], handleOpenModal, autoplay, h
                                     return <ChargingStationCard
                                         key={uuidv4()}
                                         id={item.id}
+                                        connector={item.connectors.find(connector => connector.type === connectorType)}
                                         status={item.connectors.find(connector => connector.status !== null)?.status}
-                                        handleRedirect={handleGoToPreparingCharge}
                                     />
                                 })}
                                 < NextSlideCard />
@@ -77,8 +77,8 @@ export default function SwiperCube({ stations = [], handleOpenModal, autoplay, h
                                         return <ChargingStationCard
                                             key={uuidv4()}
                                             id={item.id}
+                                            connector={item.connectors.find(connector => connector.type === connectorType)}
                                             status={item.connectors.find(connector => connector.status !== null).status}
-                                            handleRedirect={handleGoToPreparingCharge}
                                         />
                                     })
                                     }

@@ -192,18 +192,18 @@ export const chargerTypes = [
     {
         id: 1,
         header: 'eco',
-        name: 'Type 2',
-        maxValue: 22,
+        name: 'CHAdeMO',
+        maxPowerKw: 22,
         ac_dc: 'AC',
         cost: 1.95,
         currency: 'zl',
-        type: 'type_2',
+        type: 'CHAdeMO',
     },
     {
         id: 2,
         header: 'fast',
         name: 'CCS',
-        maxValue: 350,
+        maxPowerKw: 350,
         ac_dc: 'DC',
         cost: 2.73,
         currency: 'zl',
@@ -213,71 +213,71 @@ export const chargerTypes = [
 
 
 export const STATIONS = [
-    {
-        id: 1,
-        maxPowerKw: 50,
-        currentPowerKw: 0,
-        currentPowerA: 0,
-        acDcPowerRatio: 0.87,
-        status: "Operative",            // "Faulted" | "Operative" | "Unavailable"
-        onlineStatus: "Online",         //  "Offline" | "Online"
-        connectors: [
-            {
-                connectorId: "12",
-                type: "CCS",
-                status: "Charging",    //   Available | Charging | Faulted | Occupied | Reserved | Unavailable | Unknown
-                name: null,
-                maxPowerKw: 40,
-                maxPowerKwActual: 37.949,
-                latestTransaction: {
-                    stationId: null,
-                    transactionId: `2561d118-5733-4e2f-b066-cb4cb32a00ef-1`,
-                    connectorId: "12",
-                    connectorType: "CCS",
-                    status: "Charging",    //  "Alarm" | "AuthorizedNotPluggedIn" | "Charging" | "Ended" | "InsulationTest" | "PluggedInIdle" | "Unknown"
-                    startReason: "RemoteStart",
-                    chargedEnergyKwh: 0.441,
-                    chargingEndReason: "Remote",
-                    startTime: "2024-06-14T08:07:48.596",
-                    chargingEndTime: "2024-06-14T08:09:29.594",
-                    endReason: "EVDisconnected",
-                    endTime: "2024-06-14T08:09:43.935",
-                    soc: 51,
-                    socStart: 51,
-                    socEnd: null,
-                    timeToFull: null,
-                    updateTime: "2024-06-14T08:09:43.935"
-                }
-            },
-            {
-                connectorId: "11",
-                type: "CHAdeMO",
-                status: "Available",    
-                name: null,
-                maxPowerKw: 40,
-                maxPowerKwActual: 37.949,
-                latestTransaction: {
-                    stationId: null,
-                    transactionId: null,
-                    connectorId: null,
-                    connectorType: null,
-                    status: null, 
-                    startReason: null,
-                    chargedEnergyKwh: null,
-                    chargingEndReason: null,
-                    startTime: null,
-                    chargingEndTime: null,
-                    endReason: null,
-                    endTime: null,
-                    soc: null,
-                    socStart: null,
-                    socEnd: null,
-                    timeToFull: null,
-                    updateTime: null
-                }
-            },
-        ]
-    },
+    // {
+    //     id: 1,
+    //     maxPowerKw: 50,
+    //     currentPowerKw: 0,
+    //     currentPowerA: 0,
+    //     acDcPowerRatio: 0.87,
+    //     status: "Operative",            // "Faulted" | "Operative" | "Unavailable"
+    //     onlineStatus: "Online",         //  "Offline" | "Online"
+    //     connectors: [
+    //         {
+    //             connectorId: "12",
+    //             type: "CCS",
+    //             status: "Charging",    //   Available | Charging | Faulted | Occupied | Reserved | Unavailable | Unknown
+    //             name: null,
+    //             maxPowerKw: 40,
+    //             maxPowerKwActual: 37.949,
+    //             latestTransaction: {
+    //                 stationId: null,
+    //                 transactionId: `2561d118-5733-4e2f-b066-cb4cb32a00ef-1`,
+    //                 connectorId: "12",
+    //                 connectorType: "CCS",
+    //                 status: "Charging",    //  "Alarm" | "AuthorizedNotPluggedIn" | "Charging" | "Ended" | "InsulationTest" | "PluggedInIdle" | "Unknown"
+    //                 startReason: "RemoteStart",
+    //                 chargedEnergyKwh: 0.441,
+    //                 chargingEndReason: "Remote",
+    //                 startTime: "2024-06-14T08:07:48.596",
+    //                 chargingEndTime: "2024-06-14T08:09:29.594",
+    //                 endReason: "EVDisconnected",
+    //                 endTime: "2024-06-14T08:09:43.935",
+    //                 soc: 51,
+    //                 socStart: 51,
+    //                 socEnd: null,
+    //                 timeToFull: null,
+    //                 updateTime: "2024-06-14T08:09:43.935"
+    //             }
+    //         },
+    //         {
+    //             connectorId: "11",
+    //             type: "CHAdeMO",
+    //             status: "Available",    
+    //             name: null,
+    //             maxPowerKw: 40,
+    //             maxPowerKwActual: 37.949,
+    //             latestTransaction: {
+    //                 stationId: null,
+    //                 transactionId: null,
+    //                 connectorId: null,
+    //                 connectorType: null,
+    //                 status: null, 
+    //                 startReason: null,
+    //                 chargedEnergyKwh: null,
+    //                 chargingEndReason: null,
+    //                 startTime: null,
+    //                 chargingEndTime: null,
+    //                 endReason: null,
+    //                 endTime: null,
+    //                 soc: null,
+    //                 socStart: null,
+    //                 socEnd: null,
+    //                 timeToFull: null,
+    //                 updateTime: null
+    //             }
+    //         },
+    //     ]
+    // },
     {
         id: 2,
         maxPowerKw: 50,
@@ -327,8 +327,8 @@ export const STATIONS = [
         connectors: [
             {
                 connectorId: "12",
-                type: "CCS",
-                status: "Faulted",
+                type: "CHAdeMO",
+                status: "Charging",
                 name: null,
                 maxPowerKw: 40,
                 maxPowerKwActual: 37.949,
