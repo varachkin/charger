@@ -3,7 +3,6 @@ import { Footer } from "../components/Footer"
 import { LANGUAGES_CONFIG } from "../locales"
 import { useSelector } from "react-redux"
 import { Grid } from "@mui/material"
-import { InfoStationCard } from "../components/InfoStationCard"
 import { v4 as uuidv4 } from 'uuid';
 import { ChargingConnectorCard } from "../components/ChargingConnectorCard"
 import { LinkCustom } from "../components/LinkCustom"
@@ -17,10 +16,6 @@ export const ConnectorTypePage = () => {
         navigate(-1)
     }
 
-    const handleNavigateToChooseStation = (type) => {
-        navigate('/choose-station', {state: {chargerType: type}})
-    }
-
     return (
         <>
             <div className="page">
@@ -32,10 +27,17 @@ export const ConnectorTypePage = () => {
                 </h1>
                 <section className="section">
                     <div className="connector-type-wrapper">
-                        <Grid container rowSpacing={6} columns={1} justifyContent='center' flexDirection='column' sx={{ padding: '4vw', gap: '2vw' }}>
+                        <Grid
+                            container
+                            rowSpacing={6}
+                            columns={1}
+                            justifyContent='center'
+                            flexDirection='column'
+                            sx={{ padding: '4vw', gap: '2vw' }}
+                        >
                             {chargerTypes.map(charger => (
                                 <Grid item key={uuidv4()} flexGrow={1} >
-                                    <ChargingConnectorCard charger={charger}/>
+                                    <ChargingConnectorCard charger={charger} />
                                 </Grid>
                             ))}
                         </Grid>
@@ -45,7 +47,6 @@ export const ConnectorTypePage = () => {
                     className="subtitle"
                 >
                     {LANGUAGES_CONFIG[language].CONNECTOR_TYPE_PAGE.PAGE_SUBTITLE}
-
                 </h2>
             </div>
             <Footer>

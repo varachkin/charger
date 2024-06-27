@@ -54,6 +54,12 @@ export const LANGUAGES_CONFIG = {
             INFO_LINK_RECIPT: 'Wystaw paragon',
             INFO_LINK_INVOICE: 'Podaj dane do faktury'
         },
+        ERROR_STATION_PAGE: {
+            TITLE_PAGE: 'Wystąpił problem',
+            SUBTITLE_PAGE_1: 'Sprawdź połączenie wtyczki z Twoim pojazdem.',
+            SUBTITLE_PAGE_2: 'Wystąpił błąd podczas ładowania.',
+            ARTICLE_PAGE: 'Prosimy o kontakt z infolinią:',
+        },
         RATING_PAGE: {
             TITLE_PAGE: 'Oceń nas',
             SUBTITLE_PAGE: 'Jaka jest Twoja ogólna ocena satysfakcji z naszej usługi?',
@@ -77,6 +83,7 @@ export const LANGUAGES_CONFIG = {
             NO: 'Nie',
             CONFIRM: 'Potwierdzam',
             MANUAL_CHOOSE: 'Wybiorę ręcznie',
+            CONFIRM_CHECK: 'Potwierdź sprawdzenie',
         },
         FORM: {
             FORM_TITLE: 'Wymagane:',
@@ -159,6 +166,12 @@ export const LANGUAGES_CONFIG = {
             INFO_LINK_RECIPT: "Issue a receipt",
             INFO_LINK_INVOICE: "Provide invoice details",
         },
+        ERROR_STATION_PAGE: {
+            TITLE_PAGE: 'There was a problem',
+            SUBTITLE_PAGE_1: 'Check the plug connection with your vehicle.',
+            SUBTITLE_PAGE_2: 'An error occurred during charging.',
+            ARTICLE_PAGE: 'Please contact the helpline:',
+        },
         RATING_PAGE: {
             TITLE_PAGE: 'Rate us',
             SUBTITLE_PAGE: 'What is your overall satisfaction with our service?',
@@ -182,6 +195,7 @@ export const LANGUAGES_CONFIG = {
             NO: 'No',
             CONFIRM: 'Confirm',
             MANUAL_CHOOSE: 'Choose manually',
+            CONFIRM_CHECK: 'Confirm check',
         },
         FORM: {
             FORM_TITLE: 'Required:',

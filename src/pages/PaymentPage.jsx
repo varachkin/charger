@@ -8,18 +8,20 @@ import { LANGUAGES_CONFIG } from "../locales";
 export const PaymentPage = () => {
     const navigate = useNavigate()
     const location = useLocation()
+    const {id, connector} = location.state
     const { language } = useSelector(state => state.actionReducer)
     const handleBack = () => {
         navigate(-1)
     }
-    const handleSuccess = (id) => {
-        navigate('/charging', {state: {id: id}})
+    const handleSuccess = () => {
+        navigate('/charging', {state: {id, connector}})
     }
 
     const handleError = () => {
         navigate('')
     }
-console.log(location.state)
+
+    
     return (
         <>
             <div className="terminal-page-wrapper">
@@ -32,7 +34,7 @@ console.log(location.state)
 
             <Footer>
                 <LinkCustom onClick={handleBack}>{LANGUAGES_CONFIG[language].BUTTONS.BACK}</LinkCustom>
-                <div style={{ display: 'flex' }}><LinkCustom onClick={() => handleSuccess(location.state)}>Success</LinkCustom><LinkCustom onClick={handleError}>Error</LinkCustom></div>
+                <div style={{ display: 'flex' }}><LinkCustom onClick={handleSuccess}>Success</LinkCustom><LinkCustom onClick={handleError}>Error</LinkCustom></div>
             </Footer>
         </>
 

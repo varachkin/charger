@@ -6,7 +6,7 @@ import 'swiper/css/pagination';
 import { EffectCube, Pagination, FreeMode, Autoplay } from 'swiper/modules';
 import { v4 as uuidv4 } from 'uuid';
 import { useSelector } from "react-redux";
-import { ChargingStationCard } from './ChargingStationCard';
+import { StationCard } from './StationCard';
 import { NextSlideCard } from './NextSlideCard';
 
 export default function SwiperCube({ stations = [], handleOpenModal, autoplay, connectorType }) {
@@ -53,6 +53,7 @@ export default function SwiperCube({ stations = [], handleOpenModal, autoplay, c
                     chunkedArray.map((slide, i) => {
                         const isSingle = slide.length === 1;
                         const isDouble = slide.length === 2;
+                        console.log(slide)
                         return <SwiperSlide
                             key={uuidv4()}
                             virtualIndex={i}
@@ -62,11 +63,11 @@ export default function SwiperCube({ stations = [], handleOpenModal, autoplay, c
                             {i === 0 ? (<>
 
                                 {slide.map((item, index, array) => {
-                                    return <ChargingStationCard
+                                    
+                                    return <StationCard
                                         key={uuidv4()}
                                         id={item.id}
                                         connector={item.connectors.find(connector => connector.type === connectorType)}
-                                        status={item.connectors.find(connector => connector.status !== null)?.status}
                                     />
                                 })}
                                 < NextSlideCard />
@@ -74,11 +75,10 @@ export default function SwiperCube({ stations = [], handleOpenModal, autoplay, c
                                 <>
                                     < NextSlideCard />
                                     {slide.map((item, index, array) => {
-                                        return <ChargingStationCard
+                                        return <StationCard
                                             key={uuidv4()}
                                             id={item.id}
                                             connector={item.connectors.find(connector => connector.type === connectorType)}
-                                            status={item.connectors.find(connector => connector.status !== null).status}
                                         />
                                     })
                                     }

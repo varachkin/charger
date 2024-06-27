@@ -10,7 +10,6 @@ export const getProcessingStations = (stations) => {
     );
 }
 
-
 export const filterStationsByConnectorType = (array, type) => {
     return array.filter(station => station.connectors.find(connector => connector.type === type))
 }

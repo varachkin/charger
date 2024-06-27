@@ -4,7 +4,7 @@ import { LANGUAGES_CONFIG } from "../locales";
 import { Footer } from "../components/Footer";
 import { Grid } from "@mui/material";
 import { useEffect, useState } from "react";
-import { ChargingStationCard } from "../components/ChargingStationCard";
+import { StationCard } from "../components/StationCard";
 import { InfoStationCard } from "../components/InfoStationCard";
 import { v4 as uuidv4 } from 'uuid';
 import { ButtonCustom } from "../components/ButtonCustom";
@@ -15,13 +15,17 @@ import { setStations } from "../features/data/dataSlice";
 
 export const StartPage = () => {
     const { language, stationID } = useSelector(state => state.actionReducer);
-    const { stations } = useSelector(state => state.dataReducer);
+    const { stations, previousStations } = useSelector(state => state.dataReducer);
     const navigate = useNavigate();
     const dispatch = useDispatch()
 
     const handleGoNext = () => {
         navigate('/connector-type');
     };
+
+    const handleGoToInitialization = ()=> {
+        navigate('/initialization', {state: {id: 1}})
+    }
 
     useEffect(() => {
         const fetchStations = () => {
@@ -45,8 +49,8 @@ export const StartPage = () => {
 
    const processingStations = getProcessingStations(getAvailableStations(stations))
 
-    console.log('available', getAvailableStations(stations));
-    console.log('processing', getProcessingStations(getAvailableStations(stations)));
+    console.log(stations);
+    // console.log('processing', getProcessingStations(getAvailableStations(stations)));
 
     return (
         <>
@@ -73,7 +77,7 @@ export const StartPage = () => {
                                             return (
                                                 <Grid item key={index} flexGrow={1} minWidth={arr.length === 1 ? '100%' : '50%'}
                                                     justifyContent='center'>
-                                                    <ChargingStationCard id={item.id} connector={item.connectors.find(connector => connector.status !== null)} />
+                                                    <StationCard id={item.id} connector={item.connectors.find(connector => connector.status !== null)} />
                                                 </Grid>
                                             );
                                         })}
@@ -88,7 +92,7 @@ export const StartPage = () => {
                 </section>
             </div>
             <Footer>
-                <LinkCustom onClick={() => navigate('/initialization')}>???? simulate connect ????</LinkCustom>
+                <LinkCustom onClick={handleGoToInitialization}>???? simulate connect ????</LinkCustom>
                 <ButtonCustom onClick={handleGoNext}>
                     {LANGUAGES_CONFIG[language].BUTTONS.GET_STARTED}
                 </ButtonCustom>

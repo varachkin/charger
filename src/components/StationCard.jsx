@@ -4,11 +4,11 @@ import { LANGUAGES_CONFIG } from '../locales';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export const ChargingStationCard = ({ id, connector }) => {
+export const StationCard = ({ id, connector }) => {
     const navigate = useNavigate()
     const [isError, setIsError] = useState(false)
     const [isAvailable, setIsAvailable] = useState(true)
-    console.log(connector)
+    console.log(id, connector, 'card')
     useEffect(() => {
         connector.status === 'Faulted' && setIsError(true)
         connector.status !== 'Unavailable' && setIsAvailable(false)
@@ -28,9 +28,9 @@ export const ChargingStationCard = ({ id, connector }) => {
         Charging: () => navigate('/charging', {state: {connector, id}}),
         Available: () => navigate('/preparing', {state: {connector, id}}),
         Unavailable: ()=> {},
-        Faulted: ()=> {},
+        Faulted: ()=> navigate('/error-station', {state: {connector, id}}),
     }
-    console.log(connector)
+    console.log(connector, id)
     return (
         <div onClick={redirectConfig[connector.status]}>
             <Paper

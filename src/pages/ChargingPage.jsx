@@ -16,7 +16,7 @@ export const ChargingPage = () => {
         navigate(-1)
     }
 
-    
+    console.log(location.state, 'page')
 
     return (
         <>

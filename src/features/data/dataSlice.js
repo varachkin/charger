@@ -2,7 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 import { STATIONS, chargerTypes } from "../../constants";
 
 const initialState = {
-    stations: [...STATIONS],
+    stations: [],
+    previousStations: [],
     chargerTypes: [...chargerTypes],
 };
 
@@ -11,7 +12,7 @@ export const dataSlice = createSlice({
     initialState: () => initialState,
     reducers: {
         setStations: (state, actions) => {
-            state.stations = [ {id: 1, ...actions.payload}, ...STATIONS];
+            state.stations = [ {id: 1, ...actions.payload}];
         },
         stationToCompleate: (state, actions) => {
             state.stations = state.stations.map(station => station.id === actions.payload ? ({...station, status: 'compleated'}) : {...station} )

@@ -36,6 +36,11 @@
     aspect-ratio: 1/1;
     display: flex;
     flex-direction: column;
+   
+}
+
+.current-charging-card-header .connector-type-card-ico{
+    background-size: contain;
 }
 .icon-block .icon-block-name{
     text-align: center;

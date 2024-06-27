@@ -31,7 +31,7 @@
     background-color: #4B8AE9;
 }
 
-.connector-type-card-header.ccs{
+.connector-type-card-header.CCS{
     background-color: #FF8D50;
 }
 
@@ -74,6 +74,6 @@
     background-image: url(/src/assets/img/type_2.webp);
 }
 
-.ccs .connector-type-card-ico{
+.CCS .connector-type-card-ico{
     background-image: url(/src/assets/img/SCC.webp);
 }

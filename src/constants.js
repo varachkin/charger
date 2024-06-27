@@ -207,7 +207,7 @@ export const chargerTypes = [
         ac_dc: 'DC',
         cost: 2.73,
         currency: 'zl',
-        type: 'ccs',
+        type: 'CCS',
     },
 ]
 

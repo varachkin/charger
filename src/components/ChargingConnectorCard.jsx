@@ -9,7 +9,7 @@ export const ChargingConnectorCard = ({ charger }) => {
     const navigate = useNavigate()
 
     const handleNavigateToChooseStation = (type) => {
-        navigate('/choose-station', { state: {connectorType: type}})
+        navigate('/choose-station', { state: { connectorType: type } })
     }
 
     const content = {
@@ -18,15 +18,16 @@ export const ChargingConnectorCard = ({ charger }) => {
     }
 
     return (
-        <Paper sx={{
-            height: '28vh',
-            width: '100%',
-            backgroundColor: '#E6E6E6',
-            overflow: 'hidden',
-            borderRadius: 3,
-            position: 'relative',
-            zIndex: 2,
-        }}
+        <Paper
+            sx={{
+                height: '28vh',
+                width: '100%',
+                backgroundColor: '#E6E6E6',
+                overflow: 'hidden',
+                borderRadius: 3,
+                position: 'relative',
+                zIndex: 2,
+            }}
             onClick={() => handleNavigateToChooseStation(charger.type)}
             elevation={6}
         >

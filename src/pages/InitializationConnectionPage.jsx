@@ -6,14 +6,15 @@ import { LinkCustom } from "../components/LinkCustom"
 import { useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
 
-export const InitializationConnectionPage = ({ id = 2 }) => {
+export const InitializationConnectionPage = ({ id = 1 }) => {
     const { language } = useSelector(state => state.actionReducer)
     const { stations } = useSelector(state => state.dataReducer);
     const [seconds, setSeconds] = useState(0)
     const [loader, setLoader] = useState('.')
 
     const currentStation = stations.find(station => station.id === id)
-    const connector = currentStation?.connectors.find(connector => connector.status === 'Occupied')
+    // const connector = currentStation?.connectors.find(connector => connector.status === 'Occupied')
+    const connector = currentStation?.connectors[0]
     const navigate = useNavigate();
 
     const handleGoToChargingConnectors = () => {
@@ -24,9 +25,9 @@ export const InitializationConnectionPage = ({ id = 2 }) => {
         const random = Math.round(Math.random())
 
         if (random) {
-            navigate('/preparing', { state: id })
+            navigate('/preparing', { state: {connector, id} })
         } else {
-            navigate('/make-sure', { state: id })
+            navigate('/make-sure', { state: {connector, id} })
         }
     }
 
@@ -50,7 +51,7 @@ export const InitializationConnectionPage = ({ id = 2 }) => {
         return () => clearInterval(intervalId); // Cleanup the interval on component unmount
     }, []);
 
-    console.log(currentStation)
+    console.log(connector.type)
     return (
         <>
             <h1 className="title">{LANGUAGES_CONFIG[language].INITIALIZATION_PAGE.TITLE_PAGE}</h1>
@@ -64,7 +65,7 @@ export const InitializationConnectionPage = ({ id = 2 }) => {
                             <div className='station-card-number'>{id}</div>
                             <div className='station-card-name'>{LANGUAGES_CONFIG[language].CARD.STATION}</div>
                         </div>
-                        <div className={`icon-block ${connector.type?.toLowerCase()}`}>
+                        <div className={`icon-block ${connector.type}`}>
                             <div className="icon-block-name">{connector.type}</div>
                             <div className='connector-type-card-ico'></div>
                         </div>

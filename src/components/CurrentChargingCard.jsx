@@ -24,20 +24,20 @@ export const CurrentChargingCard = ({connector, id}) => {
     // const {connector} = location.state
     
     // const {latestTransaction} = connector
-    console.log(location.state)
+    console.log( id)
 
     useEffect(() => {
-        const id = setInterval(() => {
+        const intervalId = setInterval(() => {
             setCounter(prevCounter => {
                 if (prevCounter >= 100) {
-                    clearInterval(id);
+                    clearInterval(intervalId);
                     return 100;
                 }
                 return prevCounter + 1;
             });
         }, 3000);
-        setIntervalId(id)
-        return () => clearInterval(id); // Cleanup the interval on component unmount
+        setIntervalId(intervalId)
+        return () => clearInterval(intervalId); // Cleanup the interval on component unmount
     }, []);
 
 
@@ -64,7 +64,7 @@ export const CurrentChargingCard = ({connector, id}) => {
     }
 
     useEffect(() => {
-        dispatch(stationToCharging(id))
+        // dispatch(stationToCharging(id))
     }, [id])
 
     return (

@@ -15,7 +15,6 @@ import { RegulationsModal } from "../components/RegulationsModal";
 import { Policy } from "../components/PolicyModal";
 
 export const ConfirmationRegulationsPage = () => {
-    const [stationID, setStationID] = useState(null)
     const { language } = useSelector(state => state.actionReducer)
     const location = useLocation();
     const navigate = useNavigate();
@@ -26,7 +25,7 @@ export const ConfirmationRegulationsPage = () => {
         private_policy: false,
     })
     const [isError, setIsError] = useState(false)
-    console.log(location.state)
+    const {id, connector} = location.state;
     const handleChange = (event) => {
         setIsChecked(prev => ({ ...prev, [event.target.name]: !prev[event.target.name] }))
     }
@@ -38,7 +37,7 @@ export const ConfirmationRegulationsPage = () => {
     const handleGoToPayment = () => {
         if (isChecked.regulations && isChecked.private_policy) {
             setIsError(false)
-            navigate('/card-payment', { state: stationID })
+            navigate('/card-payment', { state: {id, connector} })
         } else {
             setIsError(true)
         }
@@ -59,9 +58,8 @@ export const ConfirmationRegulationsPage = () => {
         setIsOpenModalPolicy(true)
     }
 
-    useEffect(() => {
-        setStationID(location.state)
-    }, [])
+
+    console.log(id, connector)
     return (
         <>
             <div>
