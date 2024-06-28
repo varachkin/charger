@@ -3,5 +3,6 @@
     width: 100%;
     justify-content: center;
     flex-direction: column;
-    gap: 5vw;
+    gap: 7vw;
+    padding: 15vw 0;
 }

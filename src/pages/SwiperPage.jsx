@@ -4,7 +4,7 @@ import { LANGUAGES_CONFIG } from "../locales";
 import { useSelector } from "react-redux";
 import { Footer } from "../components/Footer";
 import { Link } from "@mui/material";
-import { filterStationsByConnectorType } from "../utils";
+import { filterStationsByConnectorType, getAvailableStations } from "../utils";
 
 export const SwiperPage = () => {
     const location = useLocation()
@@ -18,7 +18,7 @@ export const SwiperPage = () => {
     }
     console.log(stations)
     console.log(connectorType)
-    const arr = filterStationsByConnectorType(stations, connectorType);
+    const arr = filterStationsByConnectorType(getAvailableStations(stations), connectorType);
     return (
         <>
             <div>

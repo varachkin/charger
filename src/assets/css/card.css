@@ -54,7 +54,7 @@
     background-image: url(/src/assets/img/plug.webp);
 }
 
-.Reserved {
+.Ended {
     background-image: url(/src/assets/img/car.webp);
 }
 
@@ -63,10 +63,10 @@
     filter: grayscale(95%);
 }
 
-.Faulted {
+.Alarm {
     background-image: url(/src/assets/img/error.webp);
 }
 
-.Available {
+.AuthorizedNotPluggedIn {
     background-image: url(/src/assets/img/success.webp);
 }

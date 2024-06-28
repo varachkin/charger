@@ -49,7 +49,7 @@ export const StartPage = () => {
 
    const processingStations = getProcessingStations(getAvailableStations(stations))
 
-    console.log(stations);
+    console.log(processingStations);
     // console.log('processing', getProcessingStations(getAvailableStations(stations)));
 
     return (
